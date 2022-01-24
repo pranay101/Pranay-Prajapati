@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1b1c;
+  height: 56px;
+  transition: font-size ease-out;
+}
+
+.header h3 {
+  margin: 10px 20px;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+  font-weight: 500;
+}
+
+.header h3:hover {
+  font-size: larger;
+}
+
+.active {
+  opacity: 0.8;
+  background-color: #252627;
+  border-bottom: 2px solid lightgray;
+}
