@@ -12,7 +12,7 @@ const Tech = ({ title, experience, grip }) => {
         <p>Been working with for about {experience} years now</p>
       </div>
       <div className={classes.Tech__progress}>
-      <CircularProgressbar value={grip} text={`${grip}%`} />;
+      <CircularProgressbar value={grip} text={`${grip}%`} />
       </div>
     </div>
   );

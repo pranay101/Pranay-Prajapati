@@ -63,3 +63,18 @@
   width: 100%;
   justify-content: space-evenly;
 }
+
+@media (max-width: 720px) {
+  .About {
+    flex-direction: column;
+    max-width: 90%;
+    text-align: center;
+    margin-top: 100px;
+  }
+  .About__section {
+    flex: 1;
+  }
+  .About__tech {
+    text-align: left;
+  }
+}

@@ -6,10 +6,12 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background: rgb(243, 243, 243);
 }
 .Tech__progress {
-  flex-wrap: 0.3;
   width: 15%;
-  height: 15%;
-  color: #02992a;
+  padding: 10px;
+}
+
+@media (min-width: 420px) {
 }

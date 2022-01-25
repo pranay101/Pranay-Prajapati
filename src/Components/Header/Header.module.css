@@ -5,6 +5,8 @@
   background-color: #141414;
   height: 56px;
   transition: font-size ease-out;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .header h3 {
@@ -23,4 +25,69 @@
   opacity: 0.8;
   background-color: #252627;
   border-bottom: 2px solid lightgray;
+}
+
+@media (max-width: 420px) {
+  .header {
+    display: none;
+  }
+  .active {
+    display: none;
+  }
+  .headerMobile {
+    background: #141414;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    transition: all ease-out;
+    position: sticky;
+    top: 0;
+    flex: 1;
+    width: 100vw;
+  }
+  .activeMobile {
+    opacity: 0.8;
+    font-size: 20px;
+    color: white;
+  }
+
+  .headerMobile > h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+  .HamburgerIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .CloseIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    z-index: 10;
+  }
+}
+@media (min-width: 420px) {
+  .headerMobile {
+    display: none;
+  }
+  .activeMobile {
+    display: none;
+  }
+  .HamburgerIcon {
+    display: none;
+  }
+  .CloseIcon {
+    display: none;
+  }
 }
