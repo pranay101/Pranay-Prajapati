@@ -1,4 +1,7 @@
 .App {
   background-color: #e5e4e3;
   height: 100vh;
+  background: url("https://image.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

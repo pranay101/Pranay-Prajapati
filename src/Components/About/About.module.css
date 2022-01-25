@@ -1,0 +1,12 @@
+.About {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.About__section {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  justify-content: center;
+}

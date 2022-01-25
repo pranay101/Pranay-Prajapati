@@ -1,17 +1,33 @@
 import React from "react";
 import classes from "./Home.module.css";
+import Typography from '@mui/material/Typography';
 
 import profilePicture from "../../Public/pp.jpg";
 
 function Home() {
+  const name = "P r a n a y";
+  const surname = " P r a j a p a t i";
+
   return (
     <div className={classes.Home}>
       <div className={classes.Home__sectionOne}>
         <img src={profilePicture} alt="" />
-        <div>
-          <h1>Pranay Prajapati</h1>
+        <div className={classes.Home__info}>
+          <div className={classes.Home__name}>
+           
+            <span>
+              {name.split("").map((letter) => (
+                <h1 variant="h1" className={classes.home__nameLetter}>{letter}</h1>
+              ))}
+            </span>
+            <span>
+              {surname.split("").map((letter) => (
+                <h1 className={classes.home__nameLetter}>{letter}</h1>
+              ))}
+            </span>
+          </div>
 
-          <h4>Hey there i am web developer from india</h4>
+          <h4>Hey there i am web developer from India. I like to work with reactjs, nextjs, node, redux, recoil, tailwindcss etc etc. </h4>
         </div>
       </div>
     </div>

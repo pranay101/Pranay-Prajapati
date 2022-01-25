@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1b1c;
+  background-color: #141414;
   height: 56px;
   transition: font-size ease-out;
 }
