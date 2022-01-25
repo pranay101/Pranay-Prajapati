@@ -1,28 +1,36 @@
 import React from "react";
 import classes from "./About.module.css";
+import SchoolIcon from "@mui/icons-material/School";
+import GolfCourseIcon from "@mui/icons-material/GolfCourse";
+import SportsBaseballIcon from "@mui/icons-material/SportsBaseball";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
 const About = () => {
-  
   return (
     <div className={classes.About}>
       <div className={classes.About__section}>
-        <h3>
-          <strong>Education</strong>
-        </h3>
+        <h1>
+          <SchoolIcon /> Education
+        </h1>
         <div>
           <h4>Schooling</h4>
+          <hr />
           <p>
             <small>Holy Cross Kapa Raipur Chattisgarh</small>{" "}
           </p>
         </div>
         <div>
           <h4>Graduation </h4>
+          <hr />
           <p>
             <small>B-tech from SSIPMT Raipur.</small>
           </p>
         </div>
         <div>
-          <h4>Hobbies and Other stuff</h4>
+          <h1>
+            <SportsEsportsIcon /> Hobbies
+          </h1>
+          <hr />
           <p>
             Apart from coding all day long. I am into graphic design. Been
             running my own firm <a href="#"> The Artsy Studio</a>. under which i
@@ -34,8 +42,13 @@ const About = () => {
         </div>
       </div>
       <div className={classes.About__section}>
-        <h1>Tech I Like to work with</h1>
-        <img src={"../../Public/node.jpg"} alt="" />
+          <h1>Tech I Like to work with</h1>
+        <div className={classes.About__images}>
+          <img src="https://nodejs.org/static/images/logo.svg" alt="" />
+          <img src="https://nodejs.org/static/images/logo.svg" alt="" />
+          <img src="https://nodejs.org/static/images/logo.svg" alt="" />
+          <img src="https://nodejs.org/static/images/logo.svg" alt="" />
+        </div>
       </div>
     </div>
   );
