@@ -5,9 +5,17 @@ import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
   const [showNavItems, setshowNavItems] = useState(false);
-  const hamBurgerClickedHandler = () => {
+  const [openSideDrawer, setopenSideDrawer] = useState([classes.headerMobile]);
+
+  const hamBurgerCloseHandler = () => {
     setshowNavItems((prevState) => !prevState);
+    setopenSideDrawer([classes.headerMobile,classes.close])
   };
+  const hamBurgerOpenHandler = () => {
+    setshowNavItems((prevState) => !prevState);
+    setopenSideDrawer([classes.headerMobile,classes.open])
+  };
+
   return (
     <>
       <div className={classes.header}>
@@ -17,29 +25,24 @@ function Header() {
         <h3>Contact</h3>
       </div>
       <div>
-        <div>
-          <div>
-            {showNavItems ? (
-              <CloseIcon
-                onClick={hamBurgerClickedHandler}
-                className={classes.CloseIcon}
-              />
-            ) : (
-              <MenuIcon
-                onClick={hamBurgerClickedHandler}
-                className={classes.HamburgerIcon}
-              />
-            )}
-          </div>
-
+        <div className={classes.displayOnlyOnMobile}>
           {showNavItems ? (
-            <div className={classes.headerMobile}>
-              <h3 className={classes.activeMobile}>Home</h3>
-              <h3>About</h3>
-              <h3>Projects</h3>
-              <h3>Contact</h3>
-            </div>
-          ) : null}
+            <CloseIcon
+              onClick={hamBurgerCloseHandler}
+              className={classes.CloseIcon}
+            />
+          ) : (
+            <MenuIcon
+              onClick={hamBurgerOpenHandler}
+              className={classes.HamburgerIcon}
+            />
+          )}
+        </div>
+        <div className={openSideDrawer.join(" ")}>
+          <h3 className={classes.activeMobile}>Home</h3>
+          <h3>About</h3>
+          <h3>Projects</h3>
+          <h3>Contact</h3>
         </div>
       </div>
     </>
