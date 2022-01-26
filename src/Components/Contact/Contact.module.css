@@ -1,0 +1,119 @@
+.Contact {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: center;
+  margin: 25px auto 10px auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: #ececeb;
+  padding: 10px 30px;
+}
+.Contact h1 {
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.Contact__form {
+  font-size: 18px;
+  color: #1a1b1c;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.Contact__form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: #1a1b1c;
+  font-size: 14px;
+  border-bottom: 1px solid lightgray;
+  margin: 10px auto 5px auto;
+  padding: 10px;
+}
+
+.Contact__inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.Contact__inputs div {
+  flex: 0.45;
+  margin-right: 15px;
+}
+.Contact__inputs div > input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-weight: 600;
+  color: #1a1b1c;
+}
+
+.Contact__form div > input:focus .Contact__form div > input:active {
+  border: 1px solid lightgray;
+}
+.Contact__form textarea {
+  margin: 10px;
+  margin-right: 10px;
+  width: 95%;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-weight: 600;
+  color: #1a1b1c;
+}
+
+.button_Normal {
+  margin: 20px auto;
+  width: 11rem;
+  padding: 5px 15px;
+  font-weight: bolder;
+  border: 1px solid lightgray;
+  background: #1a1b1c;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.button_Normal p {
+  margin-right: 10px;
+}
+
+.button_Normal:hover {
+  background: transparent;
+  border: 2px solid #1a1b1c;
+  color: #1a1b1c;
+}
+
+@media (max-width: 420px) {
+  .Contact {
+    margin-top: 10vh;
+    justify-content: center;
+    text-align: center;
+  }
+  .Contact__form {
+    justify-content: center;
+    margin: 10px;
+  }
+  .Contact__form textarea {
+    width: 90%;
+    margin: 20px auto;
+  }
+  .Contact__form form {
+    flex-direction: column;
+  }
+  .Contact__inputs {
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  .Contact__inputs input {
+    margin-bottom: 10px;
+  }
+}
