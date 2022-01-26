@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 25vh;
 }
 .Home__sectionOne {
   display: flex;
-  margin-top: 25vh;
+
   align-items: flex-start;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -57,4 +58,30 @@
 }
 .Home__info > h4 {
   line-height: 2;
+}
+
+@media (max-width: 420px) {
+  .Home {
+    margin-top: 20vh;
+    padding: 10px;
+  }
+  .Home__sectionOne {
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+  }
+  .Home__sectionOne > img {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  .Home__name {
+    flex: 1;
+    justify-content: center;
+  }
+  .Home__info {
+    width: 100vw;
+    text-align: center;
+    margin: 20px 10px;
+  }
 }

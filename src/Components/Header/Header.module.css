@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #141414;
+  background-color: rgb(26, 27, 28);
   height: 56px;
   transition: font-size ease-out;
   max-width: 100%;
@@ -15,6 +15,7 @@
   cursor: pointer;
   padding: 16px;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .header h3:hover {
@@ -35,18 +36,19 @@
     display: none;
   }
   .headerMobile {
-    background: #141414;
+    background-color: rgba(26, 27, 28, 0.9);
     color: white;
     padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    position: sticky;
+    position: absolute;
     top: 0;
     flex: 1;
     width: 100vw;
-    transition: transform ease-out 0.5s;
+    transition: transform ease-in-out 0.4s;
+    z-index: 10;
   }
 
   .activeMobile {
@@ -58,14 +60,16 @@
   .headerMobile > h3 {
     font-size: 16px;
     text-align: center;
+    text-decoration: none;
+    color: #e5e4e3;
   }
   .HamburgerIcon {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 40px;
+    font-size: 50px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 15;
   }
   .CloseIcon {
     position: absolute;
@@ -74,7 +78,7 @@
     font-size: 40px;
     cursor: pointer;
     color: white;
-    z-index: 10;
+    z-index: 15;
   }
 }
 @media (min-width: 420px) {

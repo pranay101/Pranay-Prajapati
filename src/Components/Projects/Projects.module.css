@@ -1,0 +1,16 @@
+.Projects {
+  /* background-color: rgba(26, 27, 28, 0.9); */
+  margin: 20px;
+  text-align: center;
+}
+.Projects > h1 {
+  margin: 50px auto;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+.Projects__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

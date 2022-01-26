@@ -69,7 +69,8 @@
     flex-direction: column;
     max-width: 90%;
     text-align: center;
-    margin-top: 100px;
+    top: 10vh;
+    margin: auto;
   }
   .About__section {
     flex: 1;
