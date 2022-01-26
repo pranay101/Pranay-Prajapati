@@ -14,30 +14,48 @@ const Projects = () => {
       description:
         "A fully function amazon clone built using react js. the backend is handled using firebase and so the database part. you can create account and walk through all amazon dummy features.",
       image: AmazonLogo,
+      visit:"https://clone-e61de.web.app/",
+      github: "https://github.com/pranay101/Amazon-Clone"
     },
     {
       title: "Spotify-Clone",
       description:
         "Spotify web Player clone built using next js, tailwind css, recoiljs, nextauth and nextMiddlwware.",
       image: SpotifyLogo,
+      visit:"https://spotify-webplayer-clone.vercel.app/",
+      github: "https://github.com/pranay101/Spotify-Clone"
     },
     {
-      title: "Amazon-Clone",
+      title: "AirBnb Clone",
       description:
-        "A fully function amazon clone built using react js. the backend is handled using firebase and so the database part. you can create account and walk through all amazon dummy features.",
+        "A react app replicating airbnb. the center of attraction is the data picker component. building using react-date-range npm package, and clean ui is cherry on top ",
       image: AirbnbLogo,
+      visit:"https://pranay101.github.io/AirbBnb-Clone/",
+      github: "https://github.com/pranay101/AirbBnb-Clone",
     },
     {
-      title: "Amazon-Clone",
+      title: "Vocabook",
       description:
-        "A fully function amazon clone built using react js. the backend is handled using firebase and so the database part. you can create account and walk through all amazon dummy features.",
-      image: VocabookLogo
+        "My first full stack project using expressjs on top of node using mongogb, mongoose, heroku and pug. its a website which helps you boost up your vocabulary slowly and gradually by introducing you to a new word daily ",
+      image: VocabookLogo,
+      visit:"http://voca-book.herokuapp.com/",
+      github: "https://github.com/pranay101/Vocabook",
     },
     {
-      title: "Amazon-Clone",
+      title: "Burger Buidler",
       description:
-        "A fully function amazon clone built using react js. the backend is handled using firebase and so the database part. you can create account and walk through all amazon dummy features.",
+        "A react app that dynamically generates your burger depending on the ingredients you want. obviously you cant order a actual one but its fun to play with",
       image:BurgerLogo,
+      visit:"",
+      github: "https://github.com/pranay101/React"
+    },
+    {
+      title: "Music Player",
+      description:
+        "Under Development",
+      image:BurgerLogo,
+      visit:"",
+      github: ""
     },
   ];
 
@@ -53,6 +71,8 @@ const Projects = () => {
               title={project.title}
               description={project.description}
               image={project.image}
+              visit={project.visit}
+              github={project.github}
             />
           );
         })}

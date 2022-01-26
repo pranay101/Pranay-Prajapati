@@ -8,6 +8,8 @@
   margin: 20px;
   transition: all ease-out 0.3s;
   overflow: hidden;
+  margin-top: 40px;
+  border: 1px solid lightgray;
 }
 
 .project:hover {
@@ -63,6 +65,7 @@
   flex: 0.4;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .github:hover {
@@ -75,8 +78,9 @@
   flex: 0.4;
   border-radius: 5px;
   cursor: pointer;
-  background: #e5e4e3;
+  background: orange;
   color: #1a1b1c;
+  font-weight: 700;
 }
 
 .view:hover {
