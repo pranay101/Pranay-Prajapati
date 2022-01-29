@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Home.module.css";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
 
 import profilePicture from "../../Public/pp.jpg";
 
@@ -14,10 +14,11 @@ function Home() {
         <img src={profilePicture} alt="" />
         <div className={classes.Home__info}>
           <div className={classes.Home__name}>
-           
             <span>
               {name.split("").map((letter) => (
-                <h1 variant="h1" className={classes.home__nameLetter}>{letter}</h1>
+                <h1 variant="h1" className={classes.home__nameLetter}>
+                  {letter}
+                </h1>
               ))}
             </span>
             <span>
@@ -26,8 +27,22 @@ function Home() {
               ))}
             </span>
           </div>
-          <h5>A motivated and result-driven individual with strong academic credentials combined with diverse
-background of extracurricular activities and interests. An ardent believer of handwork and persistence.</h5>
+          <h5>
+            A motivated and result-driven individual with strong academic
+            credentials combined with diverse background of extracurricular
+            activities and interests. An ardent believer of handwork and
+            persistence.
+          </h5>
+          <div className={classes.Resume}>
+          <a
+            href="https://drive.google.com/file/d/1BiyVLDR_zAx8Q16mK3Ayn0MjfSPS9K7U/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Resume
+          </a>
+          </div>
+         
         </div>
       </div>
     </div>

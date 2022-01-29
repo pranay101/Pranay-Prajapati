@@ -4,7 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 
-function Header({ active }) {
+function Header() {
 
   const [showNavItems, setshowNavItems] = useState(false);
   const [openSideDrawer, setopenSideDrawer] = useState([classes.headerMobile, classes.close]);
