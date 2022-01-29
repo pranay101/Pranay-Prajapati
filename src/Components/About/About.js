@@ -117,7 +117,7 @@ const About = () => {
             </a>
             . under which i publish my designs. I really like playing sports,
             cricket, football, volleyball and badminton being prime of them.
-            <br /> To keep my self in shape and sound i maintin my physique i
+            <br /> To keep my self in shape and sound i maintain my physique i
             watch my diet and do callisthenics and yoga,
           </p>
         </div>

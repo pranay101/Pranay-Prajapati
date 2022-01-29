@@ -22,7 +22,7 @@ const Projects = () => {
     {
       title: "Spotify-Clone",
       description:
-        "Spotify web Player clone built using next js, tailwind css, recoiljs, nextauth and nextMiddlwware.",
+        "Spotify web Player clone built using next js, tailwind css, recoiljs, nextauth and nextMiddlwware. You'll need a spotify premium account inorder to play music, if you dont have one you can only list out your playlists",
       image: SpotifyLogo,
       visit: "https://spotify-webplayer-clone.vercel.app/",
       github: "https://github.com/pranay101/Spotify-Clone",
@@ -48,8 +48,8 @@ const Projects = () => {
       description:
         "A react app that dynamically generates your burger depending on the ingredients you want. obviously you cant order a actual one but its fun to play with",
       image: BurgerLogo,
-      visit: "",
-      github: "https://github.com/pranay101/React",
+      visit: "https://pranay101.github.io/Burger-Builder/#/",
+      github: "https://github.com/pranay101/Burger-Builder",
     },
     {
       title: "Under Development",
