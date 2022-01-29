@@ -4,9 +4,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({ active }) {
+
   const [showNavItems, setshowNavItems] = useState(false);
   const [openSideDrawer, setopenSideDrawer] = useState([]);
+  let stylesHome,stylesAbout,stylesProject,stylesContact = []
+
+  const [activeNav, setactiveNav] = useState("home");
   const navigate = useNavigate();
 
   const hamBurgerCloseHandler = () => {
@@ -18,35 +22,54 @@ function Header() {
     setopenSideDrawer([classes.headerMobile, classes.open]);
   };
 
-  const setActiveClassto = (title) => {};
+  if (activeNav === "home") {
+    stylesHome=[classes.active]
+  }
+  else if (activeNav === "about") {
+    stylesAbout=[classes.active]
+  }
+  else if (activeNav === "projects") {
+    stylesProject=[classes.active]
+  }
+  else if (activeNav === "contact") {
+    stylesContact=[classes.active]
+  }
+  
 
   return (
     <>
       <div className={classes.header}>
         <h3
           onClick={() => {
+            setactiveNav("home")
             navigate("/");
           }}
-          className={classes.active}
+          className={stylesHome}
         >
           Home
         </h3>
         <h3
+        className={stylesAbout}
           onClick={() => {
+            setactiveNav("about")
             navigate("/about");
           }}
         >
           About
         </h3>
         <h3
+        className={stylesProject}
           onClick={() => {
+            setactiveNav("projects")
             navigate("/projects");
           }}
         >
           Projects
         </h3>
         <h3
+        className={stylesContact}
           onClick={() => {
+            setactiveNav("contact")
             navigate("/contact");
           }}
         >
@@ -67,45 +90,46 @@ function Header() {
             />
           )}
         </div>
-      
-          <div className={openSideDrawer.join(" ")}>
-              {showNavItems ? (<div>
-            <h3
-              onClick={() => {
-                hamBurgerCloseHandler();
-                navigate("/");
-              }}
-              className={classes.activeMobile}
-            >
-              Home
-            </h3>
-            <h3
-              onClick={() => {
-                hamBurgerCloseHandler();
-                navigate("/about");
-              }}
-            >
-              About
-            </h3>
-            <h3
-              onClick={() => {
-                hamBurgerCloseHandler();
-                navigate("/projects");
-              }}
-            >
-              Projects
-            </h3>
-            <h3
-              onClick={() => {
-                hamBurgerCloseHandler();
-                navigate("/contact");
-              }}
-            >
-              Contact
-            </h3> </div>
-             ) : null}
-          </div>
-       
+
+        <div className={openSideDrawer.join(" ")}>
+          {showNavItems ? (
+            <div>
+              <h3
+                onClick={() => {
+                  hamBurgerCloseHandler();
+                  navigate("/");
+                }}
+                className={classes.activeMobile}
+              >
+                Home
+              </h3>
+              <h3
+                onClick={() => {
+                  hamBurgerCloseHandler();
+                  navigate("/about");
+                }}
+              >
+                About
+              </h3>
+              <h3
+                onClick={() => {
+                  hamBurgerCloseHandler();
+                  navigate("/projects");
+                }}
+              >
+                Projects
+              </h3>
+              <h3
+                onClick={() => {
+                  hamBurgerCloseHandler();
+                  navigate("/contact");
+                }}
+              >
+                Contact
+              </h3>{" "}
+            </div>
+          ) : null}
+        </div>
       </div>
     </>
   );
