@@ -32,9 +32,6 @@
   .header {
     display: none;
   }
-  .active {
-    display: none;
-  }
   .headerMobile {
     background-color: rgba(26, 27, 28, 0.9);
     color: white;
@@ -46,12 +43,13 @@
     position: absolute;
     top: 0;
     flex: 1;
-    width: 100vw;
-    transition: transform ease-in-out 0.4s;
+    width: 92%;
+    transition: all ease-out 0.5s;
     z-index: 10;
+    margin: 0 !important;
   }
 
-  .activeMobile {
+  .active {
     opacity: 0.8;
     font-size: 20px;
     color: white;
@@ -101,8 +99,10 @@
 
 .open {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .close {
   transform: translateY(-100%);
+  opacity: 0.5;
 }

@@ -5,3 +5,6 @@ const Mailto = ({ email, subject = "", body = "", children }) => {
 
   return <a href={`mailto:${email}${params}`}>{children}</a>;
 };
+
+
+export default Mailto

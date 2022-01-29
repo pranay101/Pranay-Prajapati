@@ -54,6 +54,27 @@
   text-decoration: none;
   color: fuchsia;
 }
+.About__section p ul {
+  list-style: none;
+  text-align: left;
+}
+
+.About__section p ul input {
+  margin-right: 10px;
+}
+.About__section .Socials {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.Socials a {
+  color: gray !important;
+}
+
+.Socials a:hover {
+  color: #1a1b1c !important;
+}
 
 .About__tech {
   display: flex;
@@ -69,13 +90,19 @@
     flex-direction: column;
     max-width: 90%;
     text-align: center;
-    top: 10vh;
     margin: auto;
+    margin-top: 90px;
   }
   .About__section {
     flex: 1;
+    margin-top: 30px;
   }
   .About__tech {
     text-align: left;
+  }
+  .About__section hr {
+    border-bottom: 1 px solid lightgray;
+    width: 60%;
+    margin: 10px auto;
   }
 }

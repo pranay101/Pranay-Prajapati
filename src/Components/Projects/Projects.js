@@ -1,12 +1,13 @@
 import React from "react";
 import Project from "./Project/Project";
 import classes from "./Projects.module.css";
-import SpotifyLogo from "../../Public/spotify logo.png";
+import SpotifyLogo from "../../Public/spotify logo.jpg";
 import AmazonLogo from "../../Public/Amazon-logo-880x660.png";
 import BurgerLogo from "../../Public/burger builder.png";
 import VocabookLogo from "../../Public/vocabook.png";
-import AirbnbLogo from "../../Public/airbnb-logo-0.png";
+import AirbnbLogo from "../../Public/airbnb-logo-0.jpg";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import Robot from "../../Public/robot.jpg"
 
 const Projects = () => {
   const projects = [
@@ -51,9 +52,9 @@ const Projects = () => {
       github: "https://github.com/pranay101/React",
     },
     {
-      title: "Music Player",
-      description: "Under Development",
-      image: BurgerLogo,
+      title: "Under Development",
+      description: "Under Development, Something great is on its way",
+      image: Robot,
       visit: "",
       github: "",
     },

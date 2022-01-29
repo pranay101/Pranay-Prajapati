@@ -56,8 +56,12 @@
 .Home__info {
   width: 60vh;
 }
-.Home__info > h4 {
+.Home__info > h5 {
   line-height: 2;
+  font-weight: lighter;
+  margin-top: 0;
+  color: #1a1b1c;
+  opacity: 0.9;
 }
 
 @media (max-width: 420px) {

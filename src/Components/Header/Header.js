@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Header({ active }) {
 
   const [showNavItems, setshowNavItems] = useState(false);
-  const [openSideDrawer, setopenSideDrawer] = useState([]);
+  const [openSideDrawer, setopenSideDrawer] = useState([classes.headerMobile, classes.close]);
   let stylesHome,stylesAbout,stylesProject,stylesContact = []
 
   const [activeNav, setactiveNav] = useState("home");
@@ -18,8 +18,8 @@ function Header({ active }) {
     setopenSideDrawer([classes.headerMobile, classes.close]);
   };
   const hamBurgerOpenHandler = () => {
-    setshowNavItems((prevState) => !prevState);
     setopenSideDrawer([classes.headerMobile, classes.open]);
+    setshowNavItems((prevState) => !prevState);
   };
 
   if (activeNav === "home") {
@@ -95,6 +95,7 @@ function Header({ active }) {
           {showNavItems ? (
             <div>
               <h3
+              className={stylesHome}
                 onClick={() => {
                   hamBurgerCloseHandler();
                   navigate("/");
@@ -104,6 +105,7 @@ function Header({ active }) {
                 Home
               </h3>
               <h3
+              className={stylesAbout}
                 onClick={() => {
                   hamBurgerCloseHandler();
                   navigate("/about");
@@ -112,6 +114,7 @@ function Header({ active }) {
                 About
               </h3>
               <h3
+              className={stylesProject}
                 onClick={() => {
                   hamBurgerCloseHandler();
                   navigate("/projects");
@@ -120,13 +123,14 @@ function Header({ active }) {
                 Projects
               </h3>
               <h3
+              className={stylesContact}
                 onClick={() => {
                   hamBurgerCloseHandler();
                   navigate("/contact");
                 }}
               >
                 Contact
-              </h3>{" "}
+              </h3>
             </div>
           ) : null}
         </div>

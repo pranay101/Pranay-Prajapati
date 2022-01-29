@@ -26,8 +26,8 @@ function Home() {
               ))}
             </span>
           </div>
-
-          <h4>Hey there i am web developer from India. I like to work with reactjs, nextjs, node, redux, recoil, tailwindcss etc etc. </h4>
+          <h5>A motivated and result-driven individual with strong academic credentials combined with diverse
+background of extracurricular activities and interests. An ardent believer of handwork and persistence.</h5>
         </div>
       </div>
     </div>

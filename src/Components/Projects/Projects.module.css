@@ -14,3 +14,9 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+@media (max-width: 420px) {
+  .Projects {
+    margin-top: 90px;
+  }
+}
