@@ -5,7 +5,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
   return (
-    <div className='flex justify-between uppercase items-center px-10 pt-14 sticky top-0 left-0
+    <nav className='flex justify-between uppercase items-center px-10 pt-14 sticky top-0 left-0
     z-50'>
         <h1 className='font-poppins text-lg tracking-[2px] font-extralight cursor-pointer hover:opacity-60'>
             Home
@@ -24,7 +24,7 @@ const Navbar = (props: Props) => {
                 <Link href={""}>Blogs</Link>
             </li>
         </ul>
-    </div>
+    </nav>
   )
 }
 

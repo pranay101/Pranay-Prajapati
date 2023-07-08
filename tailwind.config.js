@@ -12,12 +12,28 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes:{
+        "social-icon":{
+          "0%" : {
+              transform: "translateY(0)"
+          },
+          "50%" : {
+              transform: "translateY(20px)"
+          },
+          "100%":{
+              transform: "translateY(0)"
+          }
+      }
+      }
     },
     fontFamily: {
       'poppins': ['Poppins', 'sans-serif'],
       'roboto': ['Doboto', 'sans-serif'],
       'dancing': ['Dancing Script', 'sans-serif'],
     },
+    animation:{
+      social: "social-icon 3s infinite ease-in-out",
+    }
   },
   plugins: [],
 }

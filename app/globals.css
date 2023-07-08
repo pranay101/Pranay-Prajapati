@@ -26,19 +26,24 @@ font-family: 'Schibsted Grotesk', sans-serif; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
     display: none;
+    
+} */
+video{
+    max-width: none;
 }
-
 body {
     margin: 0px;
     padding: 0px;
     color: rgb(var(--foreground-rgb));
+    position: relative;
     background: linear-gradient(to bottom,
             transparent,
             rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+            /* -ms-overflow-style: none;   */
+            /* scrollbar-width: none;  */
+    /* overflow: hidden; */
 }
 
 
