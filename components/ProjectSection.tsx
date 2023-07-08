@@ -36,8 +36,8 @@ const ProjectSection = (props: Props) => {
     ]
 
     return (
-        <div className='h-screen min-w-full bg-white'>
-            <h1 className=' flex items-center font-light  text-[#141414] pt-10 pl-16 text-6xl gap-2'>Projects <div className='w-72 mt-4 border-b border-[#141414]' /></h1>
+        <div id='projects' className='h-screen min-w-full bg-white'>
+            <h1 className=' flex items-center font-light justify-center text-center  text-[#141414] pt-10 text-6xl w-full'>Projects</h1>
             <div className='w-[90%] h-[80%] px-10 mx-auto mt-10 flex justify-between items-center'>
                 <div>
                     {/* display */}

@@ -1,36 +1,119 @@
-import React from 'react'
-
+'use client'
+import { gsap } from 'gsap';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 type Props = {}
 
-function ExperienceSection({}: Props) {
-  return (
-    <section className='h-screen min-w-full bg-gray-50 relative'>
-        <h1 className='font-light absolute top-6 right-36 text-[#141414] text-6xl'>Experience</h1>
-        <div className='grid grid-cols-2 px-20 h-full overflow-hidden mx-auto'>
-            <div className=' top-0 left-0 w-full h-[95vh] overflow-hidden mx-auto text-center'>
-                  <svg className='h-full inline-block' viewBox="0 0 51 483" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-                      <path d="M27.4627 0.72964C27.3134 0.197922 26.7613 -0.112075 26.2296 0.0372408C25.6979 0.186557 25.3879 0.738643 25.5372 1.27036L27.4627 0.72964ZM26.5 248L27.4398 248.342L27.4524 248.307L27.4623 248.272L26.5 248ZM21.1667 477C21.1667 479.946 23.5545 482.333 26.5 482.333C29.4455 482.333 31.8333 479.946 31.8333 477C31.8333 474.054 29.4455 471.667 26.5 471.667C23.5545 471.667 21.1667 474.054 21.1667 477ZM25.5372 1.27036C39.0685 49.4555 45.8564 86.9928 45.8766 124.501C45.8969 162.008 39.1496 199.545 25.5377 247.728L27.4623 248.272C41.1004 199.996 47.897 162.262 47.8766 124.5C47.8563 86.7373 41.0191 49.0042 27.4627 0.72964L25.5372 1.27036ZM25.5602 247.658C9.95218 290.593 2.53159 324.733 2.73668 359.808C2.94171 394.872 10.7678 430.8 25.547 477.303L27.453 476.697C12.6977 430.269 4.93994 394.565 4.73664 359.796C4.5334 325.038 11.88 291.143 27.4398 248.342L25.5602 247.658Z" fill="black" />
-                      <circle cx="36" cy="39" r="4" fill="black" />
-                      <circle cx="31" cy="232" r="4" fill="black" />
-                      <circle cx="12" cy="289" r="4" fill="black" />
-                      <circle cx="4" cy="354" r="4" fill="black" />
-                      <circle cx="13" cy="430" r="4" fill="black" />
-                      <circle cx="40" cy="190" r="4" fill="black" />
-                      <circle cx="46" cy="153" r="4" fill="black" />
-                      <circle cx="47" cy="109" r="4" fill="black" />
-                      <circle cx="45" cy="95" r="4" fill="black" />
-                  </svg>
+function ExperienceSection({ }: Props) {
+    const education = useRef<HTMLVideoElement>(null);
+    const experience = useRef<HTMLVideoElement>(null);
+    const experienceSection = useRef<HTMLVideoElement>(null);
+    const timeline = useRef<HTMLVideoElement>(null);
 
+    useLayoutEffect(() =>{
+        gsap.registerPlugin(ScrollTrigger)
+        const educationArray = gsap.utils.toArray(education.current)
+        const mainTimeLine = gsap.timeline({
+            scrollTrigger:{
+                trigger:experienceSection.current,
+                start:"top center-=100",
+                toggleActions:"play none none reverse",
+            }
+        });
 
-            </div>
-            <div className='flex justify-center items-center'>
-                <div className='h-[60%] w-[50%] bg-gray-400'>
+        mainTimeLine.from(education.current?.children,
+        {
+            x:-100,
+            opacity:0,
+            stagger:{
+                each:.05,
+                amount:.8
+            },
+            delay:.5,
+            duration:.6
+        }).from(experience.current?.children,
+        {
+            x:100,
+            opacity:0,
+            stagger:{
+                each:.05,
+                amount:.8
+            },
+            delay:.5,
+            duration:.6
+        },0)
+    },[])
+    return (
+        <section id='experience' ref={experienceSection} className='h-screen min-w-full bg-gray-50 relative flex justify-center items-center  snap-center font-poppins'>
+            <div className='flex items-center px-20 w-full justify-around overflow-hidden'>
+
+                <div ref={education} className=' flex flex-col text-[#141414] gap-5 items-start'>
+                    <h1 className='font-light top-0  text-[#141414] text-6xl'>Experience</h1>
+
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
+
+                </div>
+                <div ref={experience} className=' flex flex-col text-[#141414] gap-5 items-end'>
+                    <h1 className='font-light top-0  text-[#141414] text-6xl'>Experience</h1>
+
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
+                    <div className='w-[35vw] bg-gray-200 p-5 rounded-md shadow-lg '>
+                        <h2 className='text-2xl font-medium text-blue-950'>Capitsign</h2>
+                        <p className='text-sm  text-gray-500'>Software Developer</p>
+                        <span className='text-sm font-rob'>Worked on the full stack project using React and Python to Develop Stock trading Tools </span>
+                        <div className='flex text-xs italic justify-between text-gray-400 mt-2 pr-5'>
+                            <span>09-2022-present</span>
+
+                            <span>Raipur, Chhattisgarh</span></div>
+                    </div>
 
                 </div>
             </div>
-        </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default ExperienceSection

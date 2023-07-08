@@ -26,10 +26,15 @@ font-family: 'Schibsted Grotesk', sans-serif; */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
     display: none;
     
-} */
+}
+
+div::-webkit-scrollbar{
+    display: none;
+
+}
 video{
     max-width: none;
 }
@@ -41,12 +46,21 @@ body {
     background: linear-gradient(to bottom,
             transparent,
             rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-            /* -ms-overflow-style: none;   */
-            /* scrollbar-width: none;  */
-    /* overflow: hidden; */
+            -ms-overflow-style: none;   
+            scrollbar-width: none; 
+    overflow: hidden;
+    font-family: poppins;
 }
 
 
 .active{
     @apply border border-white  rounded-full
+}
+.char{
+    transform: translateY(140px);
+    transition: transform .5s ;
+}
+
+.experienceTimeline{
+    stroke-dashoffset: 0%;
 }

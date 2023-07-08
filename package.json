@@ -15,10 +15,13 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
+    "gsap": "^3.12.2",
+    "locomotive-scroll": "^5.0.0-beta.8",
     "next": "13.4.8",
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "split-type": "^0.3.3",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.6"
   }
