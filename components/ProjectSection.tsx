@@ -17,8 +17,8 @@ const ProjectSection = (props: Props) => {
         const mainTimeLine = gsap.timeline({
             scrollTrigger:{
                 trigger: project.current,
-                start: "center center+=300",
-                end:"top top",
+                start: "center center+=500",
+                end:"top top-=300",
                 toggleActions: "play none none reverse",
                 // pinSpacing:false,
                 // pin:true,
@@ -43,29 +43,41 @@ const ProjectSection = (props: Props) => {
 
     const projects = [
         {
-            img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            ,
-            name: "xyz",
-            description: "sit amet consectetur adipisicing elit. Perferendis neque deserunt cum quisquam, nesciunt tempora iste ipsam asperiores incidunt rerum, eveniet in? Culpa consectetur hic ipsa placeat illum non id!"
+            img: "brainCancerDetection.webp",
+            name: "Traces Of Brain Tumour",
+            description: "Our project uses deep learning to detect early brain cancer traces in MRI scans, improving early diagnosis and treatment outcomes. With a trained model and advanced pattern recognition, we identify subtle indications of cancerous growths, aiding in timely intervention."
+            ,visitLink:"",
+            githubLink:"https://github.com/pranay101/Brain-Cancer-Detection"
         },
         {
-            img: "https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
-            ,
-            name: "xyz",
-            description: "sit amet consectetur adipisicing elit. Perferendis neque deserunt cum quisquam, nesciunt tempora iste ipsam asperiores incidunt rerum, eveniet in? Culpa consectetur hic ipsa placeat illum non id!"
+            img: "attendanceSystem.webp",
+            name: "Attendance System",
+            description: "Our Attendance System for Government-Aided Schools automates attendance tracking using biometrics or RFID tags. It provides real-time data, trend analysis, and reporting for proactive measures. This efficient system reduces administrative burdens, enhances transparency, and improves accountability, benefiting teachers, administrators, and parents.",
+            visitLink:"https://attendance-system-murex.vercel.app/",
+            githubLink:"https://github.com/pranay101/Attendance-System"
         },
         {
-            img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
-            ,
-            name: "xyz",
-            description: "sit amet consectetur adipisicing elit. Perferendis neque deserunt cum quisquam, nesciunt tempora iste ipsam asperiores incidunt rerum, eveniet in? Culpa consectetur hic ipsa placeat illum non id!"
+            img: "instagramClone.webp",
+            name: "Instagram Clone",
+            description: "Instagram clone built using nextjs and tailwind.",
+            visitLink:"https://instagram-clone-ten-xi.vercel.app/",
+            githubLink:"https://github.com/pranay101/Instagram-Clone"
         },
         {
-            img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            ,
-            name: "xyz",
-            description: "sit amet consectetur adipisicing elit. Perferendis neque deserunt cum quisquam, nesciunt tempora iste ipsam asperiores incidunt rerum, eveniet in? Culpa consectetur hic ipsa placeat illum non id!"
+            img: "spotifyClone.webp",
+            name: "Spotify-Clone",
+            description: "Spotify web Player clone built using next js, tailwind css, recoiljs, nextauth and nextMiddlwware. You'll need a spotify premium account inorder to play music, if you dont have one you can only list out your playlists",
+            visitLink:"https://spotify-webplayer-clone.vercel.app/",
+            githubLink:"https://github.com/pranay101/Spotify-Clone"
         },
+        {
+            img: "burgerBuilder.webp",
+            name: "Burger Builder",
+            description: "A react app that dynamically generates your burger depending on the ingredients you want. obviously you cant order a actual one but its fun to play with",
+            visitLink:"https://pranay101.github.io/Burger-Builder/#/",
+            githubLink:"https://github.com/pranay101/Burger-Builder"
+        },
+        
     ]
 
     return (
@@ -80,8 +92,8 @@ const ProjectSection = (props: Props) => {
                         </span>
                         <span className=' absolute hidden group-hover:flex bottom-5 py-2 justify-center items-center w-full gap-7 z-40'>
 
-                            <a href='https://google.com' target='blank' className='text-white border-2 border-gray-200 py-2 px-5 rounded-full hover:bg-transparent hover:-translate-y-1 cursor-pointer z-20 '>Visit</a>
-                            <a href='https://google.com' target='blank' className='text-white border-2 border-gray-200 py-2 px-5 rounded-full hover:bg-transparent hover:-translate-y-1  cursor-pointer z-20'>Github</a>
+                            <a href={projects[currentBlog].visitLink} target='blank' className='text-white border-2 border-gray-200 py-2 px-5 rounded-full hover:bg-transparent hover:-translate-y-1 cursor-pointer z-20 '>Visit</a>
+                            <a href={projects[currentBlog].githubLink} target='blank' className='text-white border-2 border-gray-200 py-2 px-5 rounded-full hover:bg-transparent hover:-translate-y-1  cursor-pointer z-20'>Github</a>
                         </span>
                         <div className='h-full w-full absolute z-10 bg-black opacity-0 group-hover:opacity-50 ' />
 
@@ -92,7 +104,7 @@ const ProjectSection = (props: Props) => {
                 <div className='text-right h-[60vh] overflow-y-scroll p-5'>
                     {
                         projects.map((project, index) => <div className='text-[#141414] w-[30vw] border-b-2 py-5 border-[#141414]'>
-                            <h1 onMouseEnter={() => setCurrentBlog(index)} className='font-bold text-6xl  w-full cursor-pointer'>{project.name}</h1>
+                            <h1 onMouseEnter={() => setCurrentBlog(index)} className='font-bold text-4xl whitespace-nowrap  w-full cursor-pointer'>{project.name}</h1>
                         </div>
                         )
                     }

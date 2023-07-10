@@ -141,10 +141,10 @@ const RandomSection = (props: Props) => {
       <button
         className={`${
           reveal ? "hidden" : "visible"
-        } absolute z-[100] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-gray-400 px-24 py-10 border-2 border-gray-900 rounded-2xl font-poppins font-semibold text-2xl`}
+        } absolute z-[100] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-gray-800 px-24 py-10 border-2 border-gray-900 rounded-2xl font-poppins font-semibold text-2xl`}
         onClick={() => setReveal((prec) => !prec)}
       >
-        {reveal ? "reveled" : "reveal"}
+        Reveal Random Section
       </button>
       <div
         className={`grid grid-cols-2 grid-rows-1 absolute z-50 h-full w-full ease-out duration-500 ${

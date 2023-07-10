@@ -68,7 +68,7 @@ export default function Home() {
             }
 
             <ContactSection open={openContact} setOpen={setOpenContact} />
-            <main className="min-h-screen bg-white relative no-scrollbar snap-mandatory">
+            <main className="min-h-screen bg-white relative snap-mandatory">
                 <Navbar />
 
                 <HomeSection />
