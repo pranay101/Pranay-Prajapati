@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import HomeSection from '@/components/HomeSection'
 import Navbar from '@/components/Navbar'
 import ProjectSection from '@/components/ProjectSection'
+import RandomSection from '@/components/RandomSection'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
@@ -14,9 +15,6 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 export default function Home() {
     const [openContact, setOpenContact] = useState(false)
 
-    const wrapper = useRef<HTMLVideoElement>(null);
-    const experienceSection = useRef<HTMLVideoElement>(null);
-    const projectSection = useRef<HTMLVideoElement>(null);
     // useEffect(() => {
     //     window.scrollTo({
     //         top: 0,
@@ -25,29 +23,33 @@ export default function Home() {
     // }, [])
 
 
-    useLayoutEffect(() => {
+    // useLayoutEffect(() => {
 
-        gsap.registerPlugin(ScrollTrigger)
+    //     gsap.registerPlugin(ScrollTrigger)
 
-        let ctx = gsap.context(() => {
+    //     let ctx = gsap.context(() => {
+    //         const mainTimeLine = gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: projectSection.current,
+    //                 start: 'top top',
+    //                 // start:"bottom center",
+    //                 scrub: 0,
+    //                 toggleActions: "play none none reverse",
+    //                 pin: true,
+    //             }
+    //         })
 
-            gsap.from(projectSection.current, {
-                scrollTrigger: {
-                    trigger: experienceSection.current,
-                    start: 'bottom-=200 bottom',
-                    toggleActions: "play none none reverse",
-                    pin: true,
-                },
-                x: +window.innerWidth,
-                duration:0.1
-            })
+    //         mainTimeLine.from(project.current, {
+    //             translateY: "1000%",
+    //         })
 
 
-        }, []); // <- IMPORTANT! Scopes selector text
+    //     }, []); // <- IMPORTANT! Scopes selector text
 
-        return () => ctx.revert(); // cleanup
+    //     return () => ctx.revert(); // cleanup
 
-    }, [])
+    // }, [])
+
     useEffect(() => {
 
         (
@@ -74,10 +76,11 @@ export default function Home() {
                     <AboutSection />
                 </div>
                 <ExperienceSection />
-                <div ref={projectSection}>
 
-                    <ProjectSection />
-                </div>
+                <ProjectSection  />
+
+                <RandomSection setOpenContact={setOpenContact} />
+
             </main>
             {/* <Footer /> */}
         </>

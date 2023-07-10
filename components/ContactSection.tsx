@@ -23,7 +23,7 @@ const ContactSection = (props: { open: Boolean, setOpen: Function }) => {
                     </button>
                 </div>
         </section>
-        <div onClick={() => props.setOpen(false)} className={`fixed h-screen w-screen bg-black z-50 opacity-50 blur-md ${props.open? "visible" : "hidden"} duration-500 ease-out`} />
+        <div onClick={() => props.setOpen(false)} className={`fixed h-screen w-screen bg-black z-50 opacity-50  ${props.open? "visible" : "hidden"} duration-500 ease-out`} />
     </>
         
     )

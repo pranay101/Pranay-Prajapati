@@ -16,7 +16,7 @@ function ExperienceSection({ }: Props) {
         const mainTimeLine = gsap.timeline({
             scrollTrigger:{
                 trigger:experienceSection.current,
-                start:"top center-=100",
+                start:"top center+=200",
                 toggleActions:"play none none reverse",
             }
         });
@@ -44,7 +44,7 @@ function ExperienceSection({ }: Props) {
         },0)
     },[])
     return (
-        <section id='experience' ref={experienceSection} className='h-screen min-w-full bg-gray-50 relative flex justify-center items-center  snap-center font-poppins'>
+        <section id='experience' ref={experienceSection} className='h-screen min-w-full relative flex justify-center items-center  snap-center font-poppins z-0'>
             <div className='flex items-center px-20 w-full justify-around overflow-hidden'>
 
                 <div ref={education} className=' flex flex-col text-[#141414] gap-5 items-start'>

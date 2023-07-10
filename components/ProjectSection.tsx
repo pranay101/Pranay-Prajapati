@@ -1,10 +1,43 @@
 'use client'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState,useLayoutEffect, useRef } from 'react'
 
 type Props = {}
 
 const ProjectSection = (props: Props) => {
+
+    const title = useRef<HTMLVideoElement>(null);
+    const project = useRef<HTMLVideoElement>(null);
+    useLayoutEffect(() => {
+
+        gsap.registerPlugin(ScrollTrigger)
+        
+        const mainTimeLine = gsap.timeline({
+            scrollTrigger:{
+                trigger: project.current,
+                start: "center center+=300",
+                end:"top top",
+                toggleActions: "play none none reverse",
+                // pinSpacing:false,
+                // pin:true,
+                scrub:true,
+            }
+        })
+
+
+        mainTimeLine.from(project.current?.children,{
+            opacity:0,
+            y:30,
+            stagger:{
+                each:.05
+            },
+            delay:0
+
+        })
+
+    }, [])
 
     const [currentBlog, setCurrentBlog] = useState(0)
 
@@ -36,8 +69,8 @@ const ProjectSection = (props: Props) => {
     ]
 
     return (
-        <div id='projects' className='h-screen min-w-full bg-white'>
-            <h1 className=' flex items-center font-light justify-center text-center  text-[#141414] pt-10 text-6xl w-full'>Projects</h1>
+        <div ref={project} id='projects' className='h-screen min-w-full'>
+            <h1 ref={title} className=' flex items-center font-light justify-center text-center  text-[#141414] pt-10 text-6xl w-full'>Projects</h1>
             <div className='w-[90%] h-[80%] px-10 mx-auto mt-10 flex justify-between items-center'>
                 <div>
                     {/* display */}
