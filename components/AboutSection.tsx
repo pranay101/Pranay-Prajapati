@@ -89,8 +89,8 @@ const AboutSection = (props: Props) => {
             "Hi, I am Pranay, and I am from India. I like to create cool UIs. I
             also enjoy working on the backend, but frontend development seems
             more appealing to me.
-            <br />
-            <br />
+            <br/>
+            <br/>
             Let's bring your ideas to life!"
           </span>
         </div>
