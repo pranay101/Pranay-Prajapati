@@ -77,7 +77,7 @@ const AboutSection = (props: Props) => {
                 <div ref={aboutMe} className='overflow-hidden h-full text-gray-500'>
 
                     <span className='text-sm font-light'>
-                        "Hi, I'm Pranay Prajapati, a passionate software developer specializing in frontend development with a strong focus on React and Next.js. I thrive on creating visually stunning and user-friendly interfaces that bring ideas to life.
+                        Hi, I'm Pranay Prajapati, a passionate software developer specializing in frontend development with a strong focus on React and Next.js. I thrive on creating visually stunning and user-friendly interfaces that bring ideas to life.
                         <br />
                         <br />
 
