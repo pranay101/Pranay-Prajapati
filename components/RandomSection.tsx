@@ -270,7 +270,7 @@ const RandomSection = (props: Props) => {
         </div>
         <div className="h-full w-full bg-black row-span-3">
           <div className="bg-gray-800 h-full w-full p-5">
-            <h1 className="text-2xl text-center">Achivements So Far</h1>
+            <h1 className="text-2xl text-center">Achievements So Far</h1>
             <ul className="text-sm gap-3 px-5 py-8 flex flex-col justify-start">
               <li className="list-disc font-light">
                 <strong>All India Rank 575</strong>, Innovate India Coding

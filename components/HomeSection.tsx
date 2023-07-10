@@ -58,8 +58,6 @@ const HomeSection = (props: Props) => {
                     scrollTrigger: {
                         trigger: homeSection.current || "",
                         start: "top top-=100",
-                        pin: true,
-                        anticipatePin:1,
                         toggleActions: "play none none reverse"
                     },
                     scale:0.4,

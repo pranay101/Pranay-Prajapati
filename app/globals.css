@@ -69,7 +69,6 @@ body {
             rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
             -ms-overflow-style: none;   
             scrollbar-width: none; 
-    overflow: hidden;
     font-family: poppins;
 }
 

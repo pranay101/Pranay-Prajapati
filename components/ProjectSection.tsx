@@ -20,8 +20,6 @@ const ProjectSection = (props: Props) => {
                 start: "center center+=500",
                 end:"top top-=300",
                 toggleActions: "play none none reverse",
-                // pinSpacing:false,
-                // pin:true,
                 scrub:true,
             }
         })
