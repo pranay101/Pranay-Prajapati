@@ -103,7 +103,7 @@ const ProjectSection = (props: Props) => {
                 </div>
                 <div className='text-right h-[60vh] overflow-y-scroll p-5'>
                     {
-                        projects.map((project, index) => <div className='text-[#141414] w-[30vw] border-b-2 py-5 border-[#141414]'>
+                        projects.map((project, index) => <div key={index} className='text-[#141414] w-[30vw] border-b-2 py-5 border-[#141414]'>
                             <h1 onMouseEnter={() => setCurrentBlog(index)} className='font-bold text-4xl whitespace-nowrap  w-full cursor-pointer'>{project.name}</h1>
                         </div>
                         )
