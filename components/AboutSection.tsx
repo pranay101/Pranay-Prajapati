@@ -58,7 +58,7 @@ const AboutSection = (props: Props) => {
     <section
       ref={about}
       id="about"
-      className="w-screen h-screen bg-gray-100 gap-5 grid grid-cols-2 grid-rows-1 overflow-hidden"
+      className="w-screen h-screen min-h-full bg-gray-100 gap-5 grid grid-cols-2 grid-rows-1 overflow-hidden"
     >
       <div className="mt-24 ml-24">
         <Image
@@ -74,7 +74,7 @@ const AboutSection = (props: Props) => {
 
         <Image
           ref={aboutImage2}
-          className="-translate-y-64 translate-x-[110%]"
+          className="-translate-y-64 translate-x-[110%] block"
           src={"/aboutImage2.webp"}
           alt="About Image"
           objectFit="contain"
@@ -85,28 +85,13 @@ const AboutSection = (props: Props) => {
       <div className="text-[#141414] mt-24 p-12 px-36 pl-5 overflow-hidden">
         <h1 className="text-7xl font-light mb-5">About</h1>
         <div ref={aboutMe} className="overflow-hidden h-full text-gray-500">
-          <span className="text-sm font-light">
-            Hi, I&apos;m Pranay Prajapati, a passionate software developer
-            specializing in frontend development with a strong focus on React
-            and Next.js. I thrive on creating visually stunning and
-            user-friendly interfaces that bring ideas to life.
+          <span className="text-2xl font-extralight text-gray-500">
+            "Hi, I am Pranay, and I am from India. I like to create cool UIs. I
+            also enjoy working on the backend, but frontend development seems
+            more appealing to me.
             <br />
             <br />
-            I excel at building dynamic and responsive web applications. I
-            leverage the power of React and Next.js to deliver high-performance
-            projects, implementing features like server-side rendering and code
-            splitting for optimal user experiences.
-            <br />
-            While my heart lies in frontend development, I also possess
-            excellent skills in backend technologies such as Node.js. This
-            allows me to seamlessly integrate server-side components and APIs
-            into my projects, creating robust and scalable solutions.
-            <br />
-            <br />
-            If you&apos;re looking for a dedicated software developer with a
-            knack for creating impressive interfaces using React and Next.js,
-            let&apos;s collaborate and bring your ideas to the digital world in
-            style!
+            Let's bring your ideas to life!"
           </span>
         </div>
       </div>
