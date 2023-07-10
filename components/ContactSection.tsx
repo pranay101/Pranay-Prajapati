@@ -15,15 +15,15 @@ const ContactSection = (props: { open: Boolean; setOpen: Function }) => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const sendMessageHandler = (e: FormEvent<HTMLFormElement>) => {
-    console.log("sent");
-
-    e.preventDefault();
+      
+      e.preventDefault();
+      console.log("sent");
 
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, // Replace with your service ID
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, // Replace with your template ID
-        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '', // Provide a default value
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '', // Provide a default value
+        formRef.current || "",
         process.env.NEXT_PUBLIC_EMAILJS_USER_ID
       )
       .then((response) => {
@@ -105,7 +105,7 @@ const ContactSection = (props: { open: Boolean; setOpen: Function }) => {
                 id=""
                 placeholder="Message"
               ></textarea>
-            </form>
+           
             <div className="flex justify-between gap-4 mt-4 px-10">
               <button
                 className="border-2 border-red-900 text-red-900 w-full py-1.5 rounded-md font-medium hover:bg-red-50"
@@ -114,7 +114,7 @@ const ContactSection = (props: { open: Boolean; setOpen: Function }) => {
                 close
               </button>
               <button
-                onClick={sendMessageHandler}
+                // onClick={() => formRef.current?.submit()}
                 type="submit"
                 className="w-full bg-[#141414] text-white rounded-md flex items-center justify-center gap-2 group"
               >
@@ -129,6 +129,7 @@ const ContactSection = (props: { open: Boolean; setOpen: Function }) => {
                 </svg>
               </button>
             </div>
+            </form>
           </>
         )}
       </section>

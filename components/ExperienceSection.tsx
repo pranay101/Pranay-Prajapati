@@ -5,10 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 type Props = {};
 
 function ExperienceSection({ }: Props) {
-    const education = useRef<HTMLVideoElement>(null);
-    const experience = useRef<HTMLVideoElement>(null);
-    const experienceSection = useRef<HTMLVideoElement>(null);
-    const timeline = useRef<HTMLVideoElement>(null);
+    const education = useRef<HTMLDivElement>(null);
+    const experience =  useRef<HTMLDivElement>(null);
+    const experienceSection =  useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
 
@@ -26,7 +25,7 @@ function ExperienceSection({ }: Props) {
         });
 
         mainTimeLine
-            .from(education.current?.children, {
+            .from(education.current?.children || "", {
                 x: -100,
                 opacity: 0,
                 stagger: {
@@ -37,7 +36,7 @@ function ExperienceSection({ }: Props) {
                 duration: 0.6,
             })
             .from(
-                experience.current?.children,
+                experience.current?.children  || "",
                 {
                     xPercent: 100,
                     opacity: 0,

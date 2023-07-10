@@ -8,8 +8,8 @@ type Props = {}
 
 const HomeSection = (props: Props) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const name = useRef<HTMLVideoElement>(null);
-    const homeSection = useRef<HTMLVideoElement>(null);
+    const name = useRef<HTMLDivElement>(null);
+    const homeSection = useRef<HTMLDivElement>(null);
 
     const changePlaybackSpeed = (speed: number) => {
         if (videoRef.current) {
@@ -21,7 +21,7 @@ const HomeSection = (props: Props) => {
 
         gsap.registerPlugin(ScrollTrigger)
 
-        const nameArr = new SplitType(name.current)
+        const nameArr = new SplitType(name.current || "")
 
 
         let ctx = gsap.context(() => {
@@ -36,7 +36,7 @@ const HomeSection = (props: Props) => {
                 opacity: 1
             }, 0)
 
-            const socialIcon:object = {
+            const socialIcon:any = {
                 1:"10%",
                 2:"30%",
                 3:"50%",
@@ -56,7 +56,7 @@ const HomeSection = (props: Props) => {
 
                 gsap.to(parentDiv, {
                     scrollTrigger: {
-                        trigger: home.current,
+                        trigger: homeSection.current || "",
                         start: "top top-=100",
                         pin: true,
                         anticipatePin:1,
@@ -71,7 +71,7 @@ const HomeSection = (props: Props) => {
                     color:"#fff",
                     margin:20,
                     translateY:'50%',
-                    top:socialIcon[index],
+                    top:socialIcon[index] || "",
                     z:10000,
                 })
             });

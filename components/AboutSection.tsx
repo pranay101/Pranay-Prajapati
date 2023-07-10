@@ -6,10 +6,10 @@ import React, { useEffect, useLayoutEffect, useRef } from "react";
 type Props = {};
 
 const AboutSection = (props: Props) => {
-  const about = useRef<HTMLVideoElement>(null);
-  const aboutImage1 = useRef<HTMLVideoElement>(null);
-  const aboutImage2 = useRef<HTMLVideoElement>(null);
-  const aboutMe = useRef<HTMLVideoElement>(null);
+  const about = useRef<HTMLDivElement>(null);
+  const aboutImage1 = useRef<HTMLImageElement>(null);
+  const aboutImage2 = useRef<HTMLImageElement>(null);
+  const aboutMe = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

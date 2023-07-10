@@ -8,8 +8,8 @@ type Props = {}
 
 const ProjectSection = (props: Props) => {
 
-    const title = useRef<HTMLVideoElement>(null);
-    const project = useRef<HTMLVideoElement>(null);
+    const title = useRef<HTMLHeadingElement>(null);
+    const project = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
 
         gsap.registerPlugin(ScrollTrigger)
@@ -27,7 +27,7 @@ const ProjectSection = (props: Props) => {
         })
 
 
-        mainTimeLine.from(project.current?.children,{
+        mainTimeLine.from(project.current?.children || "",{
             opacity:0,
             y:30,
             stagger:{
