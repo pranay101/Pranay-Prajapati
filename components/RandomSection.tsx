@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import React, { useState, useEffect, useRef, FormEvent, ChangeEvent } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 
 type Props = {
   setOpenContact: Function;

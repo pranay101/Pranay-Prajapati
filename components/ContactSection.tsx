@@ -1,7 +1,7 @@
 "use client";
 
-import React, { FormEvent, useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { FormEvent, useRef, useState } from "react";
 
 type Props = {};
 

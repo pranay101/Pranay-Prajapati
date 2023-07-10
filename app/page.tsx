@@ -2,15 +2,12 @@
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import Footer from "@/components/Footer";
 import HomeSection from "@/components/HomeSection";
 import Navbar from "@/components/Navbar";
 import ProjectSection from "@/components/ProjectSection";
 import RandomSection from "@/components/RandomSection";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Script from "next/script";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [openContact, setOpenContact] = useState(false);
@@ -30,6 +27,21 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+        page_path: window.location.pathname,
+        });
+    `}
+      </Script>
       {!openContact ? (
         <div
           title="Send Message"
@@ -61,7 +73,6 @@ export default function Home() {
 
         <RandomSection setOpenContact={setOpenContact} />
       </main>
-      {/* <Footer /> */}
     </>
   );
 }

@@ -1,9 +1,8 @@
 'use client'
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { gsap, } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useLayoutEffect, useRef } from 'react'
 import SplitType from 'split-type'
-import { Draggable } from 'gsap/Draggable'
 type Props = {}
 
 const HomeSection = (props: Props) => {
