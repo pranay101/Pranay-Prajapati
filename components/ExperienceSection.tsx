@@ -1,7 +1,7 @@
 "use client";
 import { gsap } from "gsap";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
 type Props = {};
 
 function ExperienceSection({ }: Props) {
