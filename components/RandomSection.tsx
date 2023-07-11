@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -212,19 +213,25 @@ const RandomSection = (props: Props) => {
         </div>
         <div className="group h-full w-full bg-[#141414] overflow-hidden">
           <div className="group-hover:hidden visible flex justify-center items-center h-full">
-            <h2 className="text-white text-3xl ">Languages I know</h2>
+            <h2 className="text-white text-3xl">Languages I know</h2>
           </div>
           <div className="flex w-full h-full justify-center items-center bg-gray-100 translate-y-[100%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300 ease-out z-20">
-            <img
-              className="h-full w-[50%]  object-cover object-center "
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/IPA_Unicode_0x0061.svg/180px-IPA_Unicode_0x0061.svg.png"
-              alt=""
-            />
-            <img
-              className="h-full w-[50%] scale-75 mt-4 object-cover object-center "
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Devanagari_aa.svg/180px-Devanagari_aa.svg.png"
-              alt=""
-            />
+            <div className="h-full w-[50%] object-cover object-center">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/IPA_Unicode_0x0061.svg/180px-IPA_Unicode_0x0061.svg.png"
+                alt=""
+                width={180}
+                height={180}
+              />
+            </div>
+            <div className="h-full w-[50%] scale-75 mt-4 object-cover object-center">
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Devanagari_aa.svg/180px-Devanagari_aa.svg.png"
+                alt=""
+                width={180}
+                height={180}
+              />
+            </div>
           </div>
         </div>
         <div className="h-full w-full bg-gray-600 col-span-2 ">

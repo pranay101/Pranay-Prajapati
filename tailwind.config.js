@@ -24,6 +24,9 @@ module.exports = {
                 transform: "translateY(0)"
             }
         }
+        },
+        animation:{
+            social: "social-icon 3s infinite ease-in-out",
         }
       },
       fontFamily: {
@@ -31,9 +34,6 @@ module.exports = {
         'roboto': ['Doboto', 'sans-serif'],
         'dancing': ['Dancing Script', 'sans-serif'],
       },
-      animation:{
-        social: "social-icon 3s infinite ease-in-out",
-      }
     },
     plugins: [],
   }
