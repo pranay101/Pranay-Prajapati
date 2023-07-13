@@ -1,23 +1,27 @@
 "use client";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import HomeSection from "@/components/HomeSection";
-import Navbar from "@/components/Navbar";
-import ProjectSection from "@/components/ProjectSection";
-import RandomSection from "@/components/RandomSection";
+import AboutSection from "@/app/components/AboutSection";
+import ContactSection from "@/app/components/ContactSection";
+import ExperienceSection from "@/app/components/ExperienceSection";
+import HomeSection from "@/app/components/HomeSection";
+import Navbar from "@/app/components/Navbar";
+import ProjectSection from "@/app/components/ProjectSection";
+import RandomSection from "@/app/components/RandomSection";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [openContact, setOpenContact] = useState(false);
 
-  // useEffect(() => {
-  //     window.scrollTo({
-  //         top: 0,
-  //         behavior: "smooth"
-  //     })
-  // }, [])
+
+export default function Home() {
+
+
+    const [openContact, setOpenContact] = useState(false);
+
+  useEffect(() => {
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+      })
+  }, [])
 
   useEffect(() => {
     (async () => {
@@ -43,6 +47,7 @@ export default function Home() {
         });
     `}
       </Script>
+
       {!openContact ? (
         <div
           title="Send Message"
@@ -63,15 +68,12 @@ export default function Home() {
       <ContactSection open={openContact} setOpen={setOpenContact} />
       <main className="min-h-screen bg-white relative overflow-hidden">
         <Navbar />
-
-        <HomeSection />
+        <HomeSection />{" "}
         <div className="!snap-center">
           <AboutSection />
         </div>
         <ExperienceSection />
-
         <ProjectSection />
-
         <RandomSection setOpenContact={setOpenContact} />
       </main>
     </>
