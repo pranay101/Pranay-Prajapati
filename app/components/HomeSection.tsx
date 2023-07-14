@@ -107,7 +107,7 @@ const HomeSection = (props: Props) => {
     <header
       id="home"
       ref={homeSection}
-      className=" h-full w-full lg:h-screen overflow-hidden top-0 z-0 bg-black relative"
+      className=" h-full w-full lg:h-screen top-0 z-0 bg-black relative"
     >
       {" "}
       <div
@@ -203,7 +203,8 @@ const HomeSection = (props: Props) => {
           I am Pranay Prajapati
         </h2>
       </div>
-      <div className="absolute top-0 left-0 z-10 h-full w-screen bg-black opacity-40" />
+      <div className="absolute top-0 left-0 z-10 h-full w-screen opacity-30  bg-black" />
+      <div className="h-[30vh] w-full  absolute bottom-0 from-transparent to-black bg-gradient-to-b gradien" />
       <video
         ref={videoRef}
         className="h-full lg:w-full object-cover"
