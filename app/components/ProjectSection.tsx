@@ -1,6 +1,7 @@
 'use client'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 import { useLayoutEffect, useRef, useState } from 'react'
 
 type Props = {}
@@ -54,7 +55,7 @@ const ProjectSection = (props: Props) => {
             githubLink:"https://github.com/pranay101/Attendance-System"
         },
         {
-            img: "instagramClone.webp",
+            img: "instagramClone.png",
             name: "Instagram Clone",
             description: "Instagram clone built using nextjs and tailwind.",
             visitLink:"https://instagram-clone-ten-xi.vercel.app/",
@@ -94,7 +95,7 @@ const ProjectSection = (props: Props) => {
                         </span>
                         <div className='h-full w-full absolute z-10 bg-black opacity-0 group-hover:opacity-50 ' />
 
-                        <img className='h-full w-full object-cover' src={projects[currentBlog].img} alt="" />
+                        <Image className='h-full w-full object-cover' src={`/${projects[currentBlog].img}`} alt={projects[currentBlog].name} width={1920} height={1080}  />
 
                     </div>
                 </div>

@@ -53,7 +53,7 @@ const AboutSection = (props: Props) => {
         //     pin: true,
         //     toggleActions:"play none none pause"
         //   },
-          duration: 100, // Adjust the duration as per your preference
+          duration: 130, // Adjust the duration as per your preference
         //   repeat: -1, // Repeat the animation indefinitely
         //   ease: "slowMo",
           rotation: 60, // Number of degrees to rotate
@@ -88,7 +88,7 @@ const AboutSection = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="absolute h-[30vh] w-full opacity-90 from-black from-20% to-transparent via-100% bg-gradient-to-b top-0 z-20" />
+      <div className="absolute h-[40vh] w-full opacity-90 from-black from-20% to-transparent via-100% bg-gradient-to-b top-0 z-20" />
       <div className="absolute h-full bg-black opacity-50 w-full  top-0 z-10" />
       <div ref={moon} className="absolute top-[45%] left-[5%] z-10">
         <Image
@@ -102,7 +102,7 @@ const AboutSection = (props: Props) => {
 
       <Image
         alt="sky"
-        className="absolute  h-screen w-screen opacity-80"
+        className="absolute  h-screen w-screen"
         src={"/skyBackground.jpg"}
         height={1280}
         width={1920}
