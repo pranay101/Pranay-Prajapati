@@ -49,7 +49,6 @@ function ExperienceSection({}: Props) {
         start: "top top",
         end: () => `+=${contentWidth}`,
         scrub: true,
-        markers: true,
         pin: true,
         anticipatePin:1
         
