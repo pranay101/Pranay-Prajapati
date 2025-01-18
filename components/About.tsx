@@ -194,9 +194,39 @@ function About() {
                     <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">
                         Interests and Hobbies
                     </h1>
+                    <div className="flex gap-4 mb-8">
+                        <a
+                            href="https://github.com/pranay101"
+                            target="_blank"
+                            className="text-2xl text-gray-600 hover:text-gray-900 transition-colors"
+                        >
+                            <i className="fab fa-github"></i>
+                        </a>
+                        <a
+                            href="https://x.com/___Pranay__"
+                            target="_blank"
+                            className="text-2xl text-gray-600 hover:text-blue-500 transition-colors"
+                        >
+                            <i className="fab fa-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/pranay-prajapati-ba510b185/"
+                            target="_blank"
+                            className="text-2xl text-gray-600 hover:text-blue-700 transition-colors"
+                        >
+                            <i className="fab fa-linkedin"></i>
+                        </a>
+                        <a
+                            href="mailto:pranayprajapati101@gmail.com"
+                            target="_blank"
+                            className="text-2xl text-gray-600 hover:text-red-500 transition-colors"
+                        >
+                            <i className="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </motion.div>
 
-                <div className="md:w-2/3 min-h-screen px-4">
+                <div className="md:w-2/3 min-h-screen md:px-4">
                     {interests.map((interest, index) => (
                         <InterestCard key={index} {...interest} />
                     ))}

@@ -11,21 +11,21 @@ const Navbar = (props: Props) => {
         <motion.section
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ 
-                type: "spring",
+            transition={{
+                type: 'spring',
                 stiffness: 100,
-                damping: 15
+                damping: 15,
             }}
             className="flex items-center justify-between container text-primary px-10 py-5 md:px-32 border-b"
         >
             <motion.h1
                 className="text-lg font-semibold text-primary"
-                whileHover={{ 
+                whileHover={{
                     scale: 1.1,
                     rotate: [0, -10, 10, -10, 0],
                     transition: {
-                        duration: 0.5
-                    }
+                        duration: 0.5,
+                    },
                 }}
                 whileTap={{ scale: 0.9 }}
             >
@@ -37,17 +37,17 @@ const Navbar = (props: Props) => {
                         key={item}
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ 
+                        transition={{
                             delay: i * 0.1,
-                            type: "spring",
-                            stiffness: 100
+                            type: 'spring',
+                            stiffness: 100,
                         }}
-                        whileHover={{ 
+                        whileHover={{
                             scale: 1.1,
-                            color: "#1b4242",
+                            color: '#1b4242',
                             transition: {
-                                duration: 0.2
-                            }
+                                duration: 0.2,
+                            },
                         }}
                     >
                         <Link
@@ -58,7 +58,7 @@ const Navbar = (props: Props) => {
                         </Link>
                     </motion.li>
                 ))}
-                <motion.li
+                {/* <motion.li
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{
@@ -79,7 +79,7 @@ const Navbar = (props: Props) => {
                     >
                         Hire Me
                     </Link>
-                </motion.li>
+                </motion.li> */}
             </ul>
         </motion.section>
     )
