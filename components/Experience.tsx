@@ -20,9 +20,9 @@ const experienceData: ExperienceItem[] = [
         location: 'Bengaluru & Gurugram, India',
         date: 'Present',
         description: [
-            'Built and maintained admin dashboard with Next.js, React and Tailwind CSS for content management',
-            'Developed responsive website frontend using Next.js 13 App Router with TypeScript and Tailwind CSS',
-            'Implemented user authentication, role-based access control and content moderation using Next.js middleware',
+            'Built and maintained zo world admin with Next.js and Tailwind CSS for content management',
+            'Developed the entire zo world website and other pages like san-francisco, membership whitefield, etc.',
+            'Learning to build products and not just writing code.',
         ],
         type: 'work',
         isPresent: true,
