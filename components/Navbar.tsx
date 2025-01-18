@@ -7,6 +7,12 @@ import { motion } from 'framer-motion'
 type Props = {}
 
 const Navbar = (props: Props) => {
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+        e.preventDefault()
+        const element = document.getElementById(id)
+        element?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <motion.section
             initial={{ x: -100, opacity: 0 }}
@@ -52,6 +58,7 @@ const Navbar = (props: Props) => {
                     >
                         <Link
                             href={`#${item}`}
+                            onClick={(e) => handleScroll(e, item)}
                             className="hover:text-primary transition-colors"
                         >
                             {item.charAt(0).toUpperCase() + item.slice(1)}
