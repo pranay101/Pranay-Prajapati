@@ -17,8 +17,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <head>
+                <link 
+                    rel="stylesheet" 
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+                />
+            </head>
             <body className={cn('bg-gray-200', inter.className)}>
-                <main className="text-dark max-w-[1440px] mx-auto w-full bg-white my-6 rounded-xl shadow-lg">
+                <main className="text-dark max-w-[1440px] mx-auto w-full bg-white md:my-6 md:rounded-xl shadow-lg">
                     {children}
                 </main>
             </body>

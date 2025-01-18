@@ -1,118 +1,207 @@
-import Image from 'next/image'
+'use client'
 
-const aboutData = {
-    interests: [
-        'Full Stack Development',
-        'UI/UX Design',
-        'Cloud Computing',
-        'Machine Learning',
-        'Open Source'
-    ],
-    contact: {
-        email: 'pranay.thakur@example.com',
-        github: 'https://github.com/pranay101',
-        linkedin: 'https://linkedin.com/in/pranay-thakur',
-        twitter: 'https://twitter.com/pranay_thakur'
+import { motion } from 'framer-motion'
+
+interface InterestCardProps {
+    icon: string
+    iconColor: string
+    title: string
+    description: string
+    link?: {
+        url: string
+        text: string
+        icon: string
+        bgColor: string
+        textColor: string
+    }
+}
+
+const interests: InterestCardProps[] = [
+    {
+        icon: 'fa-solid fa-music',
+        iconColor: 'text-green-500',
+        title: 'Music',
+        description:
+            "Can't function properly without music! Currently vibing to indie rock and lo-fi beats while coding 🎵",
+        link: {
+            url: 'https://open.spotify.com/user/ud0dps2s5wxn1cgrvls3gub8a?si=99069f85f32b48b6',
+            text: 'Checkout my Spotify',
+            icon: 'fa-brands fa-spotify',
+            bgColor: 'bg-green-100',
+            textColor: 'text-green-700',
+        },
     },
-    description: `A passionate Creative Web Developer dedicated to building and optimizing user-centric, high-impact websites. With a background in both design and development, I bring a unique blend of skills to create seamless user interfaces, conduct rigorous testing, and debug websites for optimal performance.`
+    {
+        icon: 'fa-solid fa-coffee',
+        iconColor: 'text-amber-800',
+        title: 'Coffee',
+        description: 'Getting curious about coffee and brewing methods.',
+    },
+    {
+        icon: 'fa-solid fa-guitar',
+        iconColor: 'text-orange-500',
+        title: 'Guitar',
+        description:
+            'Recently started learning guitar. Still figuring out the basics but enjoying every chord! 🎸',
+    },
+    {
+        icon: 'fa-brands fa-pinterest',
+        iconColor: 'text-red-600',
+        title: 'Pinterest',
+        description:
+            'My digital mood board paradise! Collecting inspiration for everything from UI designs to aesthetics ✨',
+        link: {
+            url: 'https://in.pinterest.com/pranay267/',
+            text: 'Follow my boards',
+            icon: 'fa-brands fa-pinterest',
+            bgColor: 'bg-red-50',
+            textColor: 'text-red-600',
+        },
+    },
+    {
+        icon: 'fa-solid fa-book',
+        iconColor: 'text-blue-600',
+        title: 'Reading',
+        description:
+            'Currently diving into "Man\'s Search for Meaning" and exploring novels to improve focus.',
+        link: {
+            url: 'https://www.goodreads.com/',
+            text: 'My Reading List',
+            icon: 'fa-solid fa-book-open',
+            bgColor: 'bg-blue-50',
+            textColor: 'text-blue-600',
+        },
+    },
+    {
+        icon: 'fa-solid fa-dumbbell',
+        iconColor: 'text-green-600',
+        title: 'Fitness',
+        description:
+            'Passionate about staying active through cycling and calisthenics.',
+    },
+    {
+        icon: 'fa-solid fa-user',
+        iconColor: 'text-purple-600',
+        title: 'Inspiration',
+        description:
+            "Deeply inspired by Andrej Karpathy's work in AI and his ability to explain complex concepts simply.",
+    },
+    {
+        icon: 'fa-solid fa-ellipsis',
+        iconColor: 'text-gray-600',
+        title: 'More to Explore...',
+        description:
+            'Always exploring new interests and hobbies. Stay tuned for more updates! 🚀',
+    },
+]
+
+const InterestCard = ({
+    icon,
+    iconColor,
+    title,
+    description,
+    link,
+}: InterestCardProps) => {
+    return (
+        <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-all group">
+            <motion.div
+                className="flex items-center gap-2 mb-2"
+                whileHover={{ scale: 1.02 }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 10,
+                }}
+            >
+                <i
+                    className={`${icon} w-6 h-6 ${iconColor} group-hover:scale-110 transition-transform`}
+                ></i>
+                <h4 className="text-lg font-bold text-primary">{title}</h4>
+            </motion.div>
+            <motion.p
+                className="text-secondary"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ type: 'spring', stiffness: 100 }}
+            >
+                {description}
+            </motion.p>
+            {link && (
+                <motion.div
+                    className="flex gap-2 mt-2 text-xs text-tertiary"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ type: 'spring', damping: 10 }}
+                >
+                    <span
+                        className={`px-4 py-2 ${link.bgColor} ${link.textColor} rounded-full`}
+                    >
+                        <a
+                            href={link.url}
+                            target="_blank"
+                            className="hover:underline flex items-center gap-1"
+                        >
+                            <i className={link.icon}></i>
+                            {link.text}
+                        </a>
+                    </span>
+                </motion.div>
+            )}
+        </div>
+    )
+}
+
+const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: 'easeOut',
+            staggerChildren: 0.15,
+        },
+    },
+}
+
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+            ease: 'easeOut',
+        },
+    },
 }
 
 function About() {
     return (
         <section
             id="about"
-            className="min-h-screen w-full md:px-32 grid md:grid-cols-3 gap-10 relative overflow-hidden py-16"
+            className="w-full py-24 px-6 md:px-32 bg-gradient-to-tr relative"
         >
-            <div className="hidden col-span-1 md:flex items-center">
-                <Image
-                    className="rounded-lg drop-shadow-xl bg-gray-500"
-                    alt="Profile Image"
-                    height={1920}
-                    width={1080}
-                    src={
-                        'https://images.unsplash.com/photo-1542235222-30e843cb43a1?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                    }
-                />
-            </div>
-
-            <div className="px-5 md:px-0 md:col-span-2 flex flex-col text-center md:text-left place-content-center ml-5 z-10">
-                <div className="mb-8">
-                    <h2 className="text-xl md:text-3xl mb-3 md:mb-5 text-dark-secondary">
-                        About Me
-                    </h2>
-                    <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                        Every exceptional design begins within.
-                    </h1>
-                    <p className="text-sm text-light-secondary mb-8">
-                        {aboutData.description}
-                    </p>
-                </div>
-
-                <div className="mb-8">
-                    <h3 className="text-lg font-semibold mb-4 text-dark">What I Love</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {aboutData.interests.map((interest, index) => (
-                            <div
-                                key={index}
-                                className="bg-gray-50 px-4 py-2 rounded-lg text-dark-secondary text-sm hover:bg-gray-100 transition-colors"
-                            >
-                                {interest}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="text-sm">
-                    <h3 className="text-lg font-semibold mb-4 text-dark">Let's Connect</h3>
-                    <div className="flex flex-wrap gap-6">
-                        <a 
-                            href={`mailto:${aboutData.contact.email}`}
-                            className="text-dark-secondary hover:text-dark transition-colors"
-                        >
-                            Email →
-                        </a>
-                        <a 
-                            href={aboutData.contact.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-dark-secondary hover:text-dark transition-colors"
-                        >
-                            GitHub →
-                        </a>
-                        <a 
-                            href={aboutData.contact.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-dark-secondary hover:text-dark transition-colors"
-                        >
-                            LinkedIn →
-                        </a>
-                        <a 
-                            href={aboutData.contact.twitter}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-dark-secondary hover:text-dark transition-colors"
-                        >
-                            Twitter →
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <svg
-                width="1441"
-                height="813"
-                viewBox="0 0 1441 813"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute z-[0] opacity-10 h-[60vh] max-w-fit top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+            <motion.div
+                className="flex flex-col md:flex-row gap-12"
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
             >
-                <path
-                    d="M1440.5 3.5C1275.83 26.1667 1023.97 38.4203 741 410C501.5 724.5 178.833 790.5 0.5 810"
-                    stroke="#9EC8B9"
-                    strokeWidth="100"
-                />
-            </svg>
+                <motion.div
+                    variants={itemVariants}
+                    className="md:w-1/3 md:sticky md:top-24 md:self-start"
+                >
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">
+                        Interests and Hobbies
+                    </h1>
+                </motion.div>
+
+                <div className="md:w-2/3 min-h-screen px-4">
+                    {interests.map((interest, index) => (
+                        <InterestCard key={index} {...interest} />
+                    ))}
+                </div>
+            </motion.div>
         </section>
     )
 }
