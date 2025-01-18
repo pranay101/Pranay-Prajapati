@@ -24,13 +24,13 @@ const Intro: React.FC<IntroProps> = () => {
                 </p>
                 <div className="flex items-center justify-center md:justify-start gap-6 px-10 md:px-0">
                     <button
-                        className="w-full sm:w-auto bg-primary text-white px-8 py-3 border-none rounded-md transition-all hover:bg-opacity-90 hover:scale-105 shadow-md"
+                        className="w-full sm:w-auto bg-primary text-white px-8 py-3 border-none rounded-md transition-all hover:bg-opacity-90 hover:scale-105 shadow-md whitespace-nowrap"
                         aria-label="View portfolio"
                     >
                         See My Work <span className="animate-pulse">✨</span>
                     </button>
                     <button
-                        className="w-full sm:w-auto text-primary hover:underline transition-all hover:scale-105"
+                        className="w-full sm:w-auto text-primary hover:underline transition-all hover:scale-105 whitespace-nowrap"
                         aria-label="Download resume"
                     >
                         Grab My Resume 📄

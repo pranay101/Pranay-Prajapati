@@ -16,7 +16,7 @@ const Navbar = (props: Props) => {
                 stiffness: 100,
                 damping: 15,
             }}
-            className="flex items-center justify-between container text-primary px-10 py-5 md:px-32 border-b"
+            className="hidden md:flex items-center justify-between container text-primary px-10 py-5 md:px-32 border-b"
         >
             <motion.h1
                 className="text-lg font-semibold text-primary"

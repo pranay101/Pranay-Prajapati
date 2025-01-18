@@ -16,7 +16,7 @@ interface ExperienceItem {
 const experienceData: ExperienceItem[] = [
     {
         title: 'Software Developer Engineer',
-        company: 'Zostel, The Zo World',
+        company: 'Zostel & The Zo World',
         location: 'Bengaluru & Gurugram, India',
         date: 'Present',
         description: [
@@ -113,14 +113,17 @@ const ExperienceCard: React.FC<{ item: ExperienceItem }> = ({ item }) => {
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 0.3 + index * 0.1,
+                            }}
                         >
                             {desc}
                         </motion.li>
                     ))}
                 </ul>
             ) : (
-                <motion.p 
+                <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
