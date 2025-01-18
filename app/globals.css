@@ -1,15 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,900&family=Roboto+Slab:wght@100;300;500;700&family=Roboto:wght@100;400;500;700;900&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-/* font-family: 'Dancing Script', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Slab', serif;
-font-family: 'Schibsted Grotesk', sans-serif; */
 
 :root {
     --foreground-rgb: 0, 0, 0;
@@ -25,202 +16,51 @@ font-family: 'Schibsted Grotesk', sans-serif; */
     }
 }
 
-/* For Webkit browsers (Chrome, Safari) */
+body {
+    color: rgb(var(--foreground-rgb));
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background: #DDE6ED;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 3px;
+    background: #1b4242;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+    background: #526D82;
 }
 
-/* For Firefox */
-/* Note: Firefox does not support customizing scrollbar width, so it will use the default width */
-/* You can only customize the colors */
-/* Uncomment the following code if you want to customize the Firefox scrollbar as well */
-
-/* scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
-  
-  /* For Microsoft Edge and Internet Explorer */
-/* Note: Microsoft Edge (EdgeHTML) and Internet Explorer do not support customizing scrollbar width and colors */
-
-
-
-video {
-    max-width: none;
+.text-primary {
+    color: #1b4242;
 }
 
-body {
-    margin: 0px;
-    padding: 0px;
-    color: rgb(var(--foreground-rgb));
-    position: relative;
-    background: linear-gradient(to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    font-family: poppins;
+.bg-primary {
+    background-color: #1b4242;
 }
 
-
-.active {
-    @apply border border-white rounded-full
+.text-secondary {
+    color: #435b6e;
 }
 
-.char {
-    transform: translateY(120px);
-    transition: transform .5s;
-    opacity: 0;
+.bg-secondary {
+    background-color: #435b6e;
 }
 
-.animate-social {
-    scale: 1;
+.text-tertiary {
+    color: #9DB2BF;
 }
 
-
-.slideshow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    perspective: 1000px;
+.bg-tertiary {
+    background-color: #9DB2BF;
 }
-
-.box-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    pointer-events: none;
-}
-
-.box {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform-origin: center center;
-    backface-visibility: hidden;
-}
-
-.box-container.active {
-    transform: rotateY(0deg);
-}
-
-.box-container:not(.active) {
-    transform: rotateY(-180deg);
-}
-
-
-.terminal {
-    font-family: 'Courier New', monospace;
-    border: 2px solid #00ff00;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-}
-
-.terminal-header {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.terminal-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 6px;
-}
-
-.terminal-output {
-    max-height: 80%;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-.terminal-cursor {
-    animation: blink 1s infinite;
-}
-
-.terminal-input {
-    display: flex;
-    align-items: center;
-}
-
-.terminal-user {
-    color: #00ff00;
-    margin-right: 4px;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.terminal pre {
-    color: #00ff00;
-    line-height: 1.4;
-    margin: 0;
-    white-space: pre-wrap;
-}
-
-
-.terminal-input-cursor {
-    caret-color: lime;
-}
-
-
-
-.page-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loader {
-    font-size: 48px;
-    font-weight: 600;
-    display: inline-block;
-    letter-spacing: 2px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #FFF;
-    box-sizing: border-box;
-    animation: spotlight 2s linear infinite alternate;
-}
-
-@keyframes spotlight {
-
-    0%,
-    20% {
-        opacity: 1;
-        letter-spacing: 2px;
-    }
-
-    80%,
-    100% {
-        opacity: 0;
-        letter-spacing: 32px;
-    }
-}
-
