@@ -18,106 +18,49 @@
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    scroll-behavior: smooth;
 }
 
-
-.text-dark {
-    color: #092635
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.text-dark-secondary {
-    color: #1B4242
+::-webkit-scrollbar-track {
+    background: #DDE6ED;
+    border-radius: 5px;
 }
 
-
-.text-light-secondary {
-    color: #5C8374;
+::-webkit-scrollbar-thumb {
+    background: #1b4242;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-.text-light {
-    color: #9EC8B9;
+::-webkit-scrollbar-thumb:hover {
+    background: #526D82;
 }
 
-.bg-dark {
-    background-color: #092635
+.text-primary {
+    color: #1b4242;
 }
 
-.bg-dark-secondary {
-    background-color: #1B4242
+.bg-primary {
+    background-color: #1b4242;
 }
 
-
-.bg-light-secondary {
-    background-color: #5C8374;
+.text-secondary {
+    color: #435b6e;
 }
 
-.bg-light {
-    background-color: #9EC8B9;
-}
-.bg-extraLight {
-    background-color: #cee7de26;
-}
-.text-extraLight {
-    color: #e4ebe8;
+.bg-secondary {
+    background-color: #435b6e;
 }
 
-.container {
-    padding: auto 100%;
-}
-.border-dark {
-    border: 1px solid #092635
+.text-tertiary {
+    color: #9DB2BF;
 }
 
-.border-dark-secondary {
-    border: 1px solid #1B4242
+.bg-tertiary {
+    background-color: #9DB2BF;
 }
-
-
-.border-light-secondary {
-    border: 1px solid #5C8374;
-}
-
-.border-light {
-    border: 1px solid #9EC8B9;
-}
-
-.container {
-    padding: auto 100%;
-}
-
-
-.projectContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
-    grid-gap: 1rem;
-}
-
-
-
-.timeLinePoint {
-    padding-bottom: 1.5rem;
-    border-left: 2px solid #092635;
-    position: relative;
-    padding-left: 20px;
-    margin-left: 10px;
-  }
-  
-  .timeLinePoint:last-child {
-    border: 0;
-    padding-bottom: 0;
-  }
-  
-  .timeLinePoint:before {
-    content: '';
-    width: 15px;
-    height: 15px;
-    background: #092635;
-    border: 1px solid #092635;
-    border-radius: 50%;
-    position: absolute;
-    left: -1.5%;
-  }
-  

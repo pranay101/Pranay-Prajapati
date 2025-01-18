@@ -1,145 +1,170 @@
+'use client'
+
 import React from 'react'
+import { motion } from 'framer-motion'
+
+interface ExperienceItem {
+    title: string
+    company: string
+    location: string
+    date: string
+    description: string[] | string
+    type: 'work' | 'internship' | 'education'
+    isPresent?: boolean
+}
+
+const experienceData: ExperienceItem[] = [
+    {
+        title: 'Software Developer Engineer',
+        company: 'Zostel, The Zo World',
+        location: 'Bengaluru & Gurugram, India',
+        date: 'Present',
+        description: [
+            'Built and maintained admin dashboard with Next.js, React and Tailwind CSS for content management',
+            'Developed responsive website frontend using Next.js 13 App Router with TypeScript and Tailwind CSS',
+            'Implemented user authentication, role-based access control and content moderation using Next.js middleware',
+        ],
+        type: 'work',
+        isPresent: true,
+    },
+    {
+        title: 'Software Developer Engineer',
+        company: 'Capitsign',
+        location: 'Noida, India',
+        date: 'Dec 2023',
+        description: [
+            'Built automated trading tools using Apache Flink, Go, and Next.js to automate FnO trading strategies',
+            'Revamped user onboarding with real-time strategy recommendations using NodeJS, Lambda, and MongoDB',
+            'Implemented comprehensive payment and subscription management system',
+        ],
+        type: 'work',
+    },
+    {
+        title: 'Software Developer Intern',
+        company: 'Capitsign',
+        location: 'Noida, India',
+        date: 'Sept 2022',
+        description:
+            'Developed options analytics tools for market trend analysis and strategy visualization',
+        type: 'internship',
+    },
+    {
+        title: 'Frontend Developer Intern',
+        company: 'Pylon Tech',
+        location: 'Remote',
+        date: 'Jan 2022',
+        description:
+            "Built government website focused on women's safety and crime prevention",
+        type: 'internship',
+    },
+    {
+        title: 'Software Developer Intern',
+        company: 'Klimb.io',
+        location: 'Mumbai, India',
+        date: 'June 2022',
+        description:
+            'Developed cloud-based recruitment management solution for streamlined hiring processes',
+        type: 'internship',
+    },
+    {
+        title: 'Software Developer Intern',
+        company: 'Beasenest',
+        location: 'West Bengal, India',
+        date: 'Oct 2021',
+        description:
+            'Led UI development for e-commerce platform specializing in daily necessities',
+        type: 'internship',
+    },
+]
+
+const ExperienceCard: React.FC<{ item: ExperienceItem }> = ({ item }) => {
+    const borderColor =
+        item.type === 'internship'
+            ? 'border-emerald-400 before:bg-emerald-400 after:bg-emerald-200'
+            : item.isPresent
+            ? 'border-indigo-500 before:bg-indigo-500 after:bg-indigo-200'
+            : 'border-violet-400 before:bg-violet-400 after:bg-violet-200'
+
+    return (
+        <motion.li
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{
+                duration: 0.3,
+                type: 'spring',
+                damping: 20,
+                stiffness: 100,
+            }}
+            className={`pb-8 border-l-2 ${borderColor} pl-6 ml-6 last:border-0 last:pb-0 relative before:content-[''] before:w-4 before:h-4 before:absolute before:-left-[9px] before:rounded-full before:shadow-lg after:content-[''] after:w-2 after:h-2 after:absolute after:-left-[5.5px] after:top-[4px] after:rounded-full after:shadow-md`}
+        >
+            <div className="text-primary font-semibold text-lg flex justify-start gap-6 items-center">
+                {item.title}
+                {item.isPresent && (
+                    <span className="text-xs font-medium px-3 py-1 bg-indigo-500 bg-opacity-20 text-indigo-800 rounded-full animate-pulse">
+                        Present
+                    </span>
+                )}
+            </div>
+            <div className="text-secondary text-sm mb-2 mt-2">
+                {item.company} • {item.location}{' '}
+                {!item.isPresent && `• ${item.date}`}
+            </div>
+            {Array.isArray(item.description) ? (
+                <ul className="text-sm space-y-2 text-tertiary list-disc pl-4">
+                    {item.description.map((desc, index) => (
+                        <motion.li
+                            key={index}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{
+                                delay: index * 0.1,
+                                duration: 0.2,
+                            }}
+                        >
+                            {desc}
+                        </motion.li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="text-sm text-tertiary">{item.description}</p>
+            )}
+        </motion.li>
+    )
+}
 
 const Experience = () => {
     return (
-        <section id='experience' className="min-h-[90vh] w-full md:px-32 py-10 border-t ">
-            <h1 className="text-dark text-3xl my-5 text-center">
-                Journey So far
-            </h1>
-            <div className="flex justify-center items-center p-1 md:p-3">
-                <div className="bg-extraLight p-8 rounded-lg w-full md:w-[45vw] mx-auto">
-                    <ul className="mt-8 rounded-xl relative">
-                        <li className="pb-4 border-l-2 border-purple-500 pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time">
-                                Born On
-                            </div>
-                            <p className="text-light-secondary">
-                                26th July 2001
-                            </p>
-                        </li>
-                        <li className="pb-4 border-l-2 border-purple-500 pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Finished Schooling
-                                <span className="text-xs text-dark-secondary">
-                                    Raipur, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">March, 2019</p>
-                            <span className="text-sm">
-                                Finished Schooling From Holy Cross Kapa
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2 border-purple-500 pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Software Developer Intern, Beasenest
-                                <span className="text-xs text-dark-secondary">
-                                    West Bengal, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">
-                                October' 2021
-                            </p>
-                            <span className="text-sm">
-                                I was Responsible for developing the entire UI
-                                for an E-commerce website. That sells Daily need
-                                items
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2  pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Frontend Developer Intern, Pylon Tech
-                                <span className="text-xs text-dark-secondary">
-                                    Remote, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">
-                                January' 2022
-                            </p>
-                            <span className="text-sm">
-                                Developed website for the government of
-                                chhattisgarh, which helped them tackle crimes
-                                and voilence against women
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2  pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Software Developer Intern, Klimb.io
-                                <span className="text-xs text-dark-secondary">
-                                    Mumbai, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">June' 2022</p>
-                            <span className="text-sm">
-                                Worked on cloud-based recruitment management
-                                solution designed to help businesses manage
-                                hiring processes{' '}
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2  pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Software Developer Intern, Capitsign
-                                <span className="text-xs text-dark-secondary">
-                                    Noida, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">
-                                September' 2022
-                            </p>
-                            <span className="text-sm">
-                                Developed options analytics tools that helps you
-                                analyse market trends and visualise your
-                                strategies for a simple and intuitive options
-                                trading experience.s
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2 border-purple-500 pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex items-center justify-between">
-                                Bachelor of technology,
-                                <span className="text-xs text-dark-secondary">
-                                    Raipur, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">June' 2023</p>
-                            <span className="text-sm">
-                                <ul>
-                                    <li>• Graduated From SSIPMT with Major's in Computer
-                                Science</li>
-                                    <li>• Build Deeplearning models that can identify traces of brain tumour in MRI Report </li>
-                                </ul>
-                                
-                                
-                            </span>
-                        </li>
-                        <li className="pb-4 border-l-2  pl-6 ml-6 last:border-0 last:pb-0 timeLinePoint">
-                            <div className="text-dark font-medium time flex justify-between items-center">
-                                Software Developer Engineer, Capitsign
-                                <span className="text-xs text-dark-secondary">
-                                    Noida, India
-                                </span>
-                            </div>
-                            <p className="text-light-secondary">Present</p>
-                            <span className="text-sm">
-                                <ul>
-                                    <li>
-                                        • Built automated trading tools using
-                                        Apache Flink, Go, and Next.js to
-                                        Automate trading FnO strategies.
-                                    </li>
-                                    <li>
-                                        • Revamped onboarding experience for new
-                                        users, developing a real-time trading
-                                        strategy recommendation system that
-                                        provides actionable strategy
-                                        recommendations based on real-time data.
-                                        (NodeJS, Lambda, MongoDB)
-                                    </li>
-                                    <li>
-                                        • Built Payment and Subscription Management System
-                                    </li>
-                                </ul>
-                            </span>
-                        </li>
-                    </ul>
+        <section id="experience" className="w-full px-6 md:px-32 py-16">
+            <div className="max-w-6xl">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                        duration: 0.5,
+                        type: 'spring',
+                        damping: 20,
+                        stiffness: 100,
+                    }}
+                    className="mb-12"
+                >
+                    <h2 className="text-secondary text-lg font-medium mb-2">
+                        EXPERIENCE
+                    </h2>
+                    <h1 className="text-3xl md:text-4xl font-bold text-primary">
+                        My Professional Journey
+                    </h1>
+                </motion.div>
+
+                <div className="flex justify-start items-center">
+                    <div className="w-full">
+                        <ul className="relative">
+                            {experienceData.map((item, index) => (
+                                <ExperienceCard key={index} item={item} />
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

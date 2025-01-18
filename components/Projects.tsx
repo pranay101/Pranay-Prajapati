@@ -2,10 +2,10 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import MannoteLogo from '@/public/Mannotelogo.jpg'
+import GoLogo from '@/public/GoLang.png'
+import VocabookLogo from '@/public/Vocabook.png'
 import { ProjectProps } from '@/typings'
 import { AnimatePresence, motion } from 'framer-motion'
-
-type Props = {}
 
 const projects: ProjectProps[] = [
     {
@@ -16,255 +16,213 @@ const projects: ProjectProps[] = [
         github: 'https://github.com/pranay101/Mannote',
         link: 'https://mannote.vercel.app/',
         image: MannoteLogo,
+        date: 'Aug 2023',
+        type: 'Personal',
+        techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
     },
     {
-        name: 'BeatLedger',
+        name: 'Go-Image-Shape-Transformer',
         description: 'Empower Your Productivity: Where Notes and Plans Unite!',
         longDescription:
-            "Mann-Note is more than just a productivity tool; it's a commitment to helping you realize your full potential. Our mission is to empower individuals and teams to unlock their creativity, streamline their workflows, and achieve their goals with ease. We're here to simplify the complexities of modern life, making productivity a natural part of your daily routine",
+            'This project is a web server built in Go that allows users to upload an image and then guides them through a selection process via a primitive Command-Line Interface (CLI). Users can interact with different modes and options for processing the uploaded image.',
         github: 'https://github.com/pranay101/Mannote',
         link: 'https://mannote.vercel.app/',
-        image: MannoteLogo,
+        image: GoLogo,
+        date: 'Dec 2024',
+        type: 'Personal',
+        techStack: ['Go', 'CLI'],
     },
     {
-        name: 'MannNote',
-        description: 'Empower Your Productivity: Where Notes and Plans Unite!',
+        name: 'Block-QR-Code-Generator',
+        description: "BlockQR: Your Vehicle's Data Guardian",
         longDescription:
-            "Mann-Note is more than just a productivity tool; it's a commitment to helping you realize your full potential. Our mission is to empower individuals and teams to unlock their creativity, streamline their workflows, and achieve their goals with ease. We're here to simplify the complexities of modern life, making productivity a natural part of your daily routine",
-        github: 'https://github.com/pranay101/Mannote',
-        link: 'https://mannote.vercel.app/',
-        image: MannoteLogo,
+            'The QR Code Generator for Vehicles is intended to be a user-friendly platform, accessible as either a web application or a mobile app. Its primary purpose is to allow vehicle owners to generate QR codes containing their vehicle information',
+        date: 'Sept 2023',
+        type: 'Personal',
+        techStack: ['React', 'Solidity', 'hardhat'],
     },
     {
-        name: 'MannNote',
-        description: 'Empower Your Productivity: Where Notes and Plans Unite!',
+        name: 'Wordle',
+        description: 'Wordle: A Word Game',
         longDescription:
-            "Mann-Note is more than just a productivity tool; it's a commitment to helping you realize your full potential. Our mission is to empower individuals and teams to unlock their creativity, streamline their workflows, and achieve their goals with ease. We're here to simplify the complexities of modern life, making productivity a natural part of your daily routine",
-        github: 'https://github.com/pranay101/Mannote',
-        link: 'https://mannote.vercel.app/',
-        image: MannoteLogo,
+            'Wordle is a word game where you have to guess the word in 6 tries. You can play with your friends or family.',
+        github: 'https://github.com/pranay101/Wordle',
+        link: 'https://wordle-theta-two.vercel.app/',
+        date: 'Dec 2023',
+        type: 'Personal',
+        techStack: ['React', 'CSS'],
     },
     {
-        name: 'MannNote',
-        description: 'Empower Your Productivity: Where Notes and Plans Unite!',
+        name: 'Brain-Cancer-Detection',
+        description: 'Brain Cancer Detection',
         longDescription:
-            "Mann-Note is more than just a productivity tool; it's a commitment to helping you realize your full potential. Our mission is to empower individuals and teams to unlock their creativity, streamline their workflows, and achieve their goals with ease. We're here to simplify the complexities of modern life, making productivity a natural part of your daily routine",
-        github: 'https://github.com/pranay101/Mannote',
-        link: 'https://mannote.vercel.app/',
-        image: MannoteLogo,
+            'This is a web application for classifying brain tumor images using deep learning models. The application provides an interface to upload an MRI image and predicts the type of brain tumor present in the image. The two supported models are ResNet and DenseNet.',
+        github: 'https://github.com/pranay101/Brain-Cancer-Detection',
+        link: 'https://brain-cancer-detection.vercel.app/',
+        date: 'Jan 2023',
+        type: 'Team',
+        techStack: ['Pytorch', 'Flask'],
     },
     {
-        name: 'MannNote',
-        description: 'Empower Your Productivity: Where Notes and Plans Unite!',
+        name: 'Vocabook',
+        description: 'Vocabook: Your Personal Vocabulary Trainer',
         longDescription:
-            "Mann-Note is more than just a productivity tool; it's a commitment to helping you realize your full potential. Our mission is to empower individuals and teams to unlock their creativity, streamline their workflows, and achieve their goals with ease. We're here to simplify the complexities of modern life, making productivity a natural part of your daily routine",
-        github: 'https://github.com/pranay101/Mannote',
-        link: 'https://mannote.vercel.app/',
-        image: MannoteLogo,
+            'Vocabook is a web application that allows users to create their own vocabulary books and add words to them. The application provides an interface to add words to the book and then the user can review the words in the book.',
+        github: 'https://github.com/pranay101/Vocabook',
+        link: '',
+        image: VocabookLogo,
+        date: 'Dec 2023',
+        type: 'Personal',
+        techStack: ['NodeJS', 'MongoDB', 'pug'],
     },
 ]
 
-// Props for Project component
-interface ProjectComponentProps {
+interface ProjectCardProps {
     project: ProjectProps
-    index: number
-    projectSelectHandler: (index: number) => void
+    isExpanded: boolean
+    onToggle: () => void
 }
 
-// Props for ProjectViewer component
-interface ProjectViewerComponentProps {
-    project: ProjectProps
-    closeHandler: () => void
-}
-
-const Projects = (props: Props) => {
-    const [selectedProject, setSelectedProject] = useState(-1)
-
-    const handleProjectSelect = (index: number) => {
-        setSelectedProject(index)
-    }
+const Projects = () => {
+    const [expandedProject, setExpandedProject] = useState<string | null>(null)
 
     return (
-        <motion.section
-            id="projects"
-            className="min-h-[70vh] w-full md:px-32 pb-10"
-        >
-            <motion.h1
-                className="text-dark text-3xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-            >
-                These are some of my Projects
-            </motion.h1>
-            {selectedProject !== -1 && (
-                <AnimatePresence>
-                    <motion.div
-                       
-                        
-                    >
-                        <ProjectViewer
-                            key={projects[selectedProject].name}
-                            project={projects[selectedProject]}
-                            closeHandler={() => setSelectedProject(-1)}
-                        />
-                    </motion.div>
-                </AnimatePresence>
-            )}
-            <motion.div className="projectContainer mt-10">
-                {projects.map((project, index) => (
-                    <Project
-                        key={project.name + index}
-                        project={project}
-                        index={index}
-                        projectSelectHandler={handleProjectSelect}
-                    />
-                ))}
-            </motion.div>
-        </motion.section>
-    )
-}
-
-const ProjectViewer = ({
-    project,
-    closeHandler,
-}: ProjectViewerComponentProps) => {
-    return (
-        <motion.section
-        // initial={{ opacity: 0, y: 100 }}
-        // animate={{ opacity: 1 ,y:0}}
-        // exit={{ opacity: 0 , y: 100}}
-        // transition={{duration: 1}}
-            variants={{
-                open: { opacity: 1},
-                closed: { opacity: 0, y: 20 },
-            }}
-            
-            initial="closed"
-            animate="open"
-            exit="closed"
-            transition={{ duration: 0.5, ease: 'easeInOut'}}
-            className="w-full bg-extraLight h-[50vh] mt-5 grid grid-cols-3 p-8 gap-5 relative"
-        >
-            <motion.button
-                variants={{
-                    hover: { scale: 1.1 },
-                    tap: { scale: 0.9 },
-                }}
-                whileHover="hover"
-                whileTap="tap"
-                className="absolute top-5 right-5"
-                onClick={closeHandler}
-            >
-                Close
-            </motion.button>
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="flex items-center"
-            >
-                <Image
-                    className=""
-                    src={project.image}
-                    width={400}
-                    height={400}
-                    alt={project.name}
-                />
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
-                className="flex flex-col justify-center ml-5 col-span-2"
-            >
-                <motion.h2
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="text-xl md:text-2xl mb-2 md:mb-2 text-dark-secondary"
-                >
-                    Personal
-                </motion.h2>
-                <motion.h1
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="text-3xl md:text-5xl font-bold mb-2"
-                >
-                    {project.name}
-                </motion.h1>
-                <p className="text-sm text-light-secondary mb-5">
-                    {project.longDescription}
-                </p>
-                <div className="text-sm space-x-10">
-                    <button className="bg-dark text-white px-5 py-2 border-none rounded-md">
-                        Github
-                    </button>
-                    <button className="text-dark ">Visit</button>
+        <section id="projects" className="w-full px-6 md:px-32 py-16">
+            <div className="max-w-6xl">
+                <div className="mb-12">
+                    <h2 className="text-secondary text-lg font-medium mb-2">
+                        PROJECTS
+                    </h2>
+                    <h1 className="text-4xl font-bold text-primary">
+                        My Creative Portfolio
+                    </h1>
                 </div>
-            </motion.div>
-        </motion.section>
+
+                <div className="">
+                    <ul className="space-y-6">
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.name}
+                                project={project}
+                                isExpanded={expandedProject === project.name}
+                                onToggle={() =>
+                                    setExpandedProject(
+                                        expandedProject === project.name
+                                            ? null
+                                            : project.name
+                                    )
+                                }
+                            />
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </section>
     )
 }
 
-const Project = ({
-    project,
-    index,
-    projectSelectHandler,
-}: ProjectComponentProps) => {
+const ProjectCard = ({ project, isExpanded, onToggle }: ProjectCardProps) => {
+    const borderColor = project.type === 'Personal' ? 'emerald-500' : 'blue-500'
+
     return (
-        <motion.div
-            onClick={() => projectSelectHandler(index)}
-            key={project.name + index}
-            variants={{
-                hover: { scale: 1.1, opacity: 1 },
-                rest: { scale: 1, opacity: 0.7 },
-            }}
-            whileHover="hover"
-            className="group h-full w-full border border-gray-200 rounded-md text-dark relative cursor-pointer"
+        <motion.li
+            layout="position"
+            className={`relative before:content-[''] 
+                 before:absolute before:-left-[9px] 
+                before:rounded-full before:shadow-lg transition-all duration-300 hover:transform border-b pb-4 border-gray-100`}
         >
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2, ease: 'easeInOut' }}
-                className="hidden group-hover:flex h-full w-full absolute z-10 bg-light"
-            />
-            <div className="bg-white m-3">
-                <Image
-                    className=""
-                    src={project.image}
-                    width={300}
-                    height={300}
-                    alt={project.name}
-                />
-            </div>
-            <motion.div
-                initial={{ y: 20 }}
-                animate={{ y: 0 }}
-                exit={{ y: 20 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="text-dark px-5 py-2 flex justify-between items-center"
+                layout="position"
+                className="cursor-pointer"
+                onClick={onToggle}
             >
-                <motion.h1
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="text-base font-medium"
-                >
-                    {project.name}
-                </motion.h1>
-                <span className="text-[10px] text-light-secondary px-2 py-1 rounded-full font-medium inline-flex gap-5">
-                    Aug` 23
-                </span>
+                <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xl font-semibold text-primary">
+                        {project.name}
+                    </h3>
+                    <span
+                        className={`text-xs font-medium px-3 py-1 
+                        ${
+                            project.type === 'Personal'
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-blue-100 text-blue-700'
+                        } 
+                        rounded-full`}
+                    >
+                        {project.type}
+                    </span>
+                </div>
+
+                <div className="text-secondary text-sm mb-2">
+                    {project.date}
+                </div>
+
+                <AnimatePresence mode="wait">
+                    {isExpanded ? (
+                        <motion.div
+                            key="expanded"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 overflow-hidden"
+                        >
+                            {project.image && (
+                                <div className="relative h-48 md:h-full rounded-lg overflow-hidden">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            )}
+                            <div className="md:col-span-2">
+                                <p className="text-tertiary mb-4">
+                                    {project.longDescription}
+                                </p>
+                                <div className="flex space-x-4">
+                                    {project.github && (
+                                        <motion.a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-primary text-white px-4 py-2 rounded-md text-sm hover:bg-opacity-90"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            View on GitHub
+                                        </motion.a>
+                                    )}
+                                    {project.link && (
+                                        <motion.a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary hover:underline text-sm flex items-center"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            Live Demo →
+                                        </motion.a>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ) : (
+                        <motion.p
+                            key="collapsed"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="text-tertiary"
+                        >
+                            {project.description}
+                        </motion.p>
+                    )}
+                </AnimatePresence>
             </motion.div>
-        </motion.div>
+        </motion.li>
     )
 }
 
