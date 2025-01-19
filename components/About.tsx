@@ -65,7 +65,7 @@ const interests: InterestCardProps[] = [
         description:
             'Currently diving into "Man\'s Search for Meaning" and exploring novels to improve focus.',
         link: {
-            url: 'https://www.goodreads.com/',
+            url: 'https://www.goodreads.com/user/show/101791031-pranay',
             text: 'My Reading List',
             icon: 'fa-solid fa-book-open',
             bgColor: 'bg-blue-50',
