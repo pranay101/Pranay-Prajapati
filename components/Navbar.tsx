@@ -22,7 +22,7 @@ const Navbar = (props: Props) => {
                 stiffness: 100,
                 damping: 15,
             }}
-            className="hidden md:flex items-center justify-between container text-primary px-10 py-5 md:px-32 border-b"
+            className="flex items-center justify-between container text-primary px-10 py-5 md:px-32 border-b"
         >
             <motion.h1
                 className="text-lg font-semibold text-primary"
@@ -37,7 +37,7 @@ const Navbar = (props: Props) => {
             >
                 Pranay
             </motion.h1>
-            <ul className="hidden md:flex text-sm space-x-10 text-seondary">
+            <ul className="flex text-sm gap-6 md:gap-10 text-seondary">
                 {['home', 'about', 'projects', 'experience'].map((item, i) => (
                     <motion.li
                         key={item}
