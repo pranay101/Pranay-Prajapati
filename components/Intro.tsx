@@ -1,9 +1,19 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
 
 interface IntroProps {}
 
 const Intro: React.FC<IntroProps> = () => {
+    const handleScrollToProjects: React.MouseEventHandler<HTMLButtonElement> = (
+        e
+    ) => {
+        e.preventDefault()
+        const element = document.getElementById('projects')
+        element?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <section
             id="home"
@@ -24,17 +34,20 @@ const Intro: React.FC<IntroProps> = () => {
                 </p>
                 <div className="flex items-center justify-center md:justify-start gap-6 px-10 md:px-0">
                     <button
+                        onClick={handleScrollToProjects}
                         className="w-full sm:w-auto bg-primary text-white px-8 py-3 border-none rounded-md transition-all hover:bg-opacity-90 hover:scale-105 shadow-md whitespace-nowrap"
                         aria-label="View portfolio"
                     >
                         See My Work <span className="animate-pulse">✨</span>
                     </button>
-                    <button
+                    <a
+                        href="https://drive.google.com/file/d/1dsdJLJhQSK5VdniiLTk226XntLI8OGoE/view?usp=sharing"
+                        target="_blank"
                         className="w-full sm:w-auto text-primary hover:underline transition-all hover:scale-105 whitespace-nowrap"
                         aria-label="Download resume"
                     >
                         Grab My Resume 📄
-                    </button>
+                    </a>
                 </div>
             </div>
             <div className="w-3/5 md:w-2/5 max-w-md px-4 md:px-0">
