@@ -41,7 +41,7 @@ const Intro: React.FC<IntroProps> = () => {
                         See My Work <span className="animate-pulse">✨</span>
                     </button>
                     <a
-                        href="https://drive.google.com/file/d/1Rr1TzQVoG-HC6I86FoB4BjfwICZP6Tz2/view?usp=drive_link"
+                        href="https://drive.google.com/file/d/1T8fUgeGA7fYK7nhq5us8gBBQHl1y37OQ/view?usp=sharing"
                         target="_blank"
                         className="w-full sm:w-auto text-primary hover:underline transition-all hover:scale-105 whitespace-nowrap"
                         aria-label="Download resume"
